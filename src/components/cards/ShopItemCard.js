@@ -2,7 +2,7 @@ import React from "react";
 import { Image, Box, Flex, chakra } from "@chakra-ui/react";
 
 const ShopItemIndividualCard = React.forwardRef(function ShopItemIndividualCard(
-  { onClick, href },
+  { itemName, value, onClick, href },
   ref
 ) {
   return (
@@ -46,7 +46,7 @@ const ShopItemIndividualCard = React.forwardRef(function ShopItemIndividualCard(
             letterSpacing={1}
             paddingX="8"
           >
-            Moss Plant
+            {itemName}
           </chakra.h3>
           <Flex
             alignItems="center"
@@ -56,7 +56,7 @@ const ShopItemIndividualCard = React.forwardRef(function ShopItemIndividualCard(
             backgroundColor="secondaryBackground"
           >
             <chakra.span fontWeight="bold" textColor="text">
-              From $29
+              From ${value}
             </chakra.span>
           </Flex>
         </chakra.span>
