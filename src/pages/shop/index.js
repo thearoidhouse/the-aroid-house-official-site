@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { server } from "config.js";
+
 import { Container, Center, Flex, SimpleGrid } from "@chakra-ui/react";
 
 import { Header } from "../../components/layout/Header";
@@ -42,7 +44,6 @@ const Shop = ({ shopItems }) => {
 export default Shop;
 
 export async function getStaticProps() {
-  import { server } from "config.js";
   const response = await fetch(`${server}/api/shop`);
   const shopItems = await response.json();
 
