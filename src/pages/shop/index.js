@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { server } from "config.js";
 
 import { Container, Center, Flex, SimpleGrid, Spinner } from "@chakra-ui/react";
 
