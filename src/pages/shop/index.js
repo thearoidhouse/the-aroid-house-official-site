@@ -44,7 +44,12 @@ const Shop = ({ shopItems }) => {
 export default Shop;
 
 export async function getStaticProps() {
-  const response = await fetch(`${server}/api/shop`);
+  const response = await fetch(`${server}/api/shop`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
   const shopItems = await response.json();
 
   return {
