@@ -23,7 +23,7 @@ function cart() {
   const [items, setItems] = useContext(CartContext);
   const [paymentItem, setPaymentItem] = useContext(PaymentContext);
 
-  const [deliveryCost, setDeliveryCost] = useState(0);
+  const [deliveryCost, setDeliveryCost] = useState(10);
 
   const updateDeliveryCost = (index) => {
     if (index == 0) {

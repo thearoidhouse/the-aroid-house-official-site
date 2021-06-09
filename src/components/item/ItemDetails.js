@@ -26,7 +26,7 @@ export const ItemDetails = ({
   const [value, setValue] = useState(0);
   const [quantity, setQuantity] = useState(1);
 
-  const [setItems] = useContext(CartContext);
+  const [_, setItems] = useContext(CartContext);
 
   const updateID = (e) => {
     setID(itemID);
