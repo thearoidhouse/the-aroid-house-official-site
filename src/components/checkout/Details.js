@@ -76,10 +76,10 @@ const Details = (props) => {
         />
       </FormControl>
       <FormControl marginTop="2" id="phone" isRequired>
-        <FormLabel>Phone Number</FormLabel>
+        <FormLabel>Phone Number (91234567)</FormLabel>
         <Input
           backgroundColor="background"
-          placeholder="Phone#"
+          placeholder="91234567"
           value={props.phone}
           onChange={(e) => props.updatePhone(e.target.value)}
           color="text"

@@ -1,29 +1,15 @@
-import {
-  Flex,
-  Spacer,
-  chakra,
-  Checkbox,
-  Divider,
-  Formik,
-  Form,
-  FormControl,
-  FormLabel,
-  Input,
-  FormErrorMessage,
-  Field,
-  Button,
-  field,
-  form,
-  Box,
-  Center,
-} from "@chakra-ui/react";
+import React, { useContext } from "react";
+import { Box, chakra, Divider, Flex, Spacer } from "@chakra-ui/react";
+import Link from "next/link";
+
+import { PaymentContext } from "../../context/PaymentContext";
+
 import DeleteButton from "../buttons/DeleteButton";
 import { SmallButton } from "../buttons/SmallButton";
 import Instructions from "./Instructions";
 import Item from "./Item";
-import Link from "next/link";
-import { PaymentContext } from "../../context/PaymentContext";
-import React, { useState, useContext, useEffect } from "react";
+
+import { Customer } from "domain/models/entities/Customer";
 
 const Payment = (props) => {
   var name = "";
@@ -35,7 +21,24 @@ const Payment = (props) => {
   var delivery = 0;
 
   const [paymentItem, setPaymentItem] = useContext(PaymentContext);
-  //console.log(paymentItem[0]["items"]);
+
+  const handleOrderSubmit = () => {
+    const firstName = paymentItem[1].firstName;
+    const lastName = paymentItem[1].lastName;
+    const phoneNumber = paymentItem[1].phone;
+    const email = paymentItem[1].email;
+    const address = paymentItem[1].address;
+
+    const customer = Customer.create({
+      firstName,
+      lastName,
+      phoneNumber,
+      email,
+      address,
+    }).getResult();
+
+    const isSelfCollect = paymentItem[0].deliveryCost == 0;
+  };
 
   const handleRemove = () => {
     const newList = paymentItem.filter(
@@ -169,7 +172,7 @@ const Payment = (props) => {
           }}
         />
         <Link href="/thankyou">
-          <SmallButton name={"Finish"} />
+          <SmallButton name={"Finish"} onClick={() => handleOrderSubmit()} />
         </Link>
       </Flex>
     </Flex>
