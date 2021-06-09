@@ -1,16 +1,11 @@
 import Link from "next/link";
-import useSWR from "swr";
 
 import { Container, Center, Flex, SimpleGrid, Spinner } from "@chakra-ui/react";
 
 import { Header } from "../../components/layout/Header";
 import ShopItemCard from "../../components/cards/ShopItemCard";
 
-const fetcher = (...args) => fetch(...args).then((res) => res.json());
-
-const Shop = () => {
-  const { data: shopItems, error } = useSWR("/api/shop", fetcher);
-
+const Shop = ({ shopItems }) => {
   if (error) return <div>Error</div>;
   if (!shopItems)
     return (
@@ -59,16 +54,16 @@ const Shop = () => {
 
 export default Shop;
 
-// export async function getStaticProps() {
-//   const response = await fetch(`${server}/api/shop`, {
-//     method: "GET",
-//     headers: {
-//       "Content-Type": "application/json",
-//     },
-//   });
-//   const shopItems = await response.json();
+export async function getStaticProps() {
+  const response = await fetch(`${server}/api/shop`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  const shopItems = await response.json();
 
-//   return {
-//     props: { shopItems },
-//   };
-// }
+  return {
+    props: { shopItems },
+  };
+}
