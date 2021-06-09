@@ -7,7 +7,11 @@ const CartButton = React.forwardRef(function Cart({ onClick, href }, ref) {
   const [items, setItems] = useContext(CartContext);
   return (
     <span href={href} onClick={onClick} ref={ref}>
-      <chakra.span pos="relative" display="inline-block">
+      <chakra.span
+        pos="relative"
+        display="inline-block"
+        _hover={{ cursor: "pointer" }}
+      >
         <Icon
           boxSize={6}
           fill="none"
