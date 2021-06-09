@@ -1,25 +1,6 @@
-import {
-  Flex,
-  Spacer,
-  chakra,
-  Checkbox,
-  Divider,
-  Formik,
-  Form,
-  FormControl,
-  FormLabel,
-  Input,
-  FormErrorMessage,
-  Field,
-  Button,
-  field,
-  form,
-  Center,
-} from "@chakra-ui/react";
-import DeleteButton from "../buttons/DeleteButton";
+import { Flex, chakra, FormControl, FormLabel, Input } from "@chakra-ui/react";
+
 import { SmallButton } from "../buttons/SmallButton";
-import { PaymentContext } from "../../context/PaymentContext";
-import React, { useState, useContext, useEffect } from "react";
 
 const Details = (props) => {
   return (
@@ -89,12 +70,8 @@ const Details = (props) => {
         <SmallButton
           onClick={() => {
             props.addPaymentItem();
-            // if (props.paymentItem.length != 1) {
-            //   props.setTabIndex(1);
-            // }
           }}
           name={"Next"}
-          //onSubmit={addPaymentItem}
         />
       </Flex>
     </Flex>

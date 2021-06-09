@@ -20,20 +20,6 @@ export const ItemCarousel = () => {
     dragEnd: () => {
       setPause(false);
     },
-    // breakpoints: {
-    //   "(min-width: 480px)": {
-    //     slidesPerView: 3,
-    //     mode: "free-snap",
-    //   },
-    //   "(min-width: 768px)": {
-    //     slidesPerView: 3,
-    //     mode: "free-snap",
-    //   },
-    //   "(min-width: 1300px)": {
-    //     slidesPerView: 4,
-    //     mode: "free-snap",
-    //   },
-    // },
     slidesPerView: 1,
   });
 
@@ -58,13 +44,7 @@ export const ItemCarousel = () => {
   }, [pause, slider]);
 
   return (
-    <Box
-      className="keen-slider"
-      width={["100vw", "60vw"]}
-      ref={sliderRef}
-      //marginTop="5"
-      //objectFit="fit"
-    >
+    <Box className="keen-slider" width={["100vw", "60vw"]} ref={sliderRef}>
       {[...Array(6)].map((_, i) => {
         return (
           <div key={i} className="keen-slider__slide">

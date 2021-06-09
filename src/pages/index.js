@@ -12,12 +12,7 @@ const Index = () => (
     alignItems="center"
     backgroundColor="background"
   >
-    <Heading
-      marginTop="20"
-      //textDecoration="underline"
-      //fontStyle="italic"
-      color="text"
-    >
+    <Heading marginTop="20" color="text">
       TheAroidHouse
     </Heading>
 

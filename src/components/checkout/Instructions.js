@@ -1,23 +1,4 @@
-import {
-  Flex,
-  Spacer,
-  chakra,
-  Checkbox,
-  Divider,
-  Formik,
-  Form,
-  FormControl,
-  FormLabel,
-  Input,
-  FormErrorMessage,
-  Field,
-  Button,
-  field,
-  form,
-  UnorderedList,
-  ListItem,
-} from "@chakra-ui/react";
-import DeleteButton from "../buttons/DeleteButton";
+import { Flex, chakra, UnorderedList, ListItem } from "@chakra-ui/react";
 
 const Instructions = () => {
   return (

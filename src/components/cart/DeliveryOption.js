@@ -1,16 +1,4 @@
-import {
-  Flex,
-  Spacer,
-  chakra,
-  Checkbox,
-  Divider,
-  Box,
-  RadioGroup,
-  Radio,
-  Stack,
-  Text,
-} from "@chakra-ui/react";
-import DeleteButton from "../buttons/DeleteButton";
+import { Flex, Spacer, Checkbox, Divider, Box, Text } from "@chakra-ui/react";
 import { useState } from "react";
 
 const DeliveryOption = (props) => {

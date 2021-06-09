@@ -1,5 +1,4 @@
 import { Flex, Spacer, chakra, Divider } from "@chakra-ui/react";
-import DeleteButton from "../buttons/DeleteButton";
 
 const Item = (props) => {
   return (

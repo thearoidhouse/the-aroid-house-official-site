@@ -1,13 +1,6 @@
 import {
   Flex,
-  Box,
-  Heading,
-  Spacer,
-  Button,
-  chakra,
-  Icon,
   Center,
-  Divider,
   Tab,
   Tabs,
   TabList,
@@ -15,16 +8,11 @@ import {
   TabPanels,
   useToast,
 } from "@chakra-ui/react";
-import DeleteButton from "../components/buttons/DeleteButton";
-import { SmallButton } from "../components/buttons/SmallButton";
-import CartItem from "../components/cart/CartItem";
-import DeliveryOption from "../components/cart/DeliveryOption";
 import { HeaderCheckout } from "../components/layout/HeaderCheckout";
-import Link from "next/link";
 import Details from "../components/checkout/Details";
 import Payment from "../components/checkout/Payment";
 import { PaymentContext } from "../context/PaymentContext";
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext } from "react";
 
 function checkout() {
   const toast = useToast();
@@ -110,20 +98,9 @@ function checkout() {
       ]);
     }
 
-    // setPaymentItem((prevItems) => [
-    //   ...prevItems,
-    //   { firstName, lastName, email, address, phone },
-    // ]);
-
     console.log(paymentItem);
     console.log(firstName, lastName, email, address, phone);
   };
-
-  // useEffect(() => {
-  //   if (paymentItem.length != 1) {
-  //     setTabIndex[1];
-  //   }
-  // }, [paymentItem, setPaymentItem]);
 
   return (
     <Center backgroundColor="background">
@@ -191,15 +168,7 @@ function checkout() {
               </TabPanel>
               <TabPanel color="background" backgroundColor="text">
                 <Center>
-                  <Payment
-                    setTabIndex={setTabIndex}
-                    // firstName={firstName}
-                    // lastName={lastName}
-                    // email={email}
-                    // address={address}
-                    // phone={phone}
-                    //paymentItem={paymentItem}
-                  />
+                  <Payment setTabIndex={setTabIndex} />
                 </Center>
               </TabPanel>
             </TabPanels>

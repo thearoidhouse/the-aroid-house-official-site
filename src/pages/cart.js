@@ -2,10 +2,8 @@ import {
   Flex,
   Heading,
   Spacer,
-  Button,
   chakra,
   Center,
-  Divider,
   useToast,
 } from "@chakra-ui/react";
 
@@ -14,7 +12,7 @@ import CartItem from "../components/cart/CartItem";
 import DeliveryOption from "../components/cart/DeliveryOption";
 import { Header } from "../components/layout/Header";
 import Link from "next/link";
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import { CartContext } from "../context/CartContext";
 import { PaymentContext } from "../context/PaymentContext";
 
@@ -65,20 +63,11 @@ function cart() {
     }
   };
 
-  // useEffect(
-  //   () => {
-  //     addPaymentItem();
-  //   },
-  //   [items],
-  //   [deliveryCost]
-  // );
-
   return (
     <Center backgroundColor="background">
       <Flex
         height="100vh"
         direction="column"
-        //alignContent="center"
         backgroundColor="background"
         direction="column"
         width={["100vw", "60vw"]}

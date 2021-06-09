@@ -1,8 +1,8 @@
-import { HStack, Flex, Spacer, chakra, Box, Divider } from "@chakra-ui/react";
-import DeleteButton from "../buttons/DeleteButton";
-import { ItemCarousel } from "../item/ItemCarousel";
 import React, { useState, useContext, useEffect } from "react";
-import { CartContext } from "../../context/CartContext";
+
+import { HStack, Flex, Spacer, chakra, Box, Divider } from "@chakra-ui/react";
+
+import DeleteButton from "../buttons/DeleteButton";
 
 const CartItem = (props) => {
   return (

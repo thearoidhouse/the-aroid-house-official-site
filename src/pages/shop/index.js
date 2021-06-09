@@ -17,8 +17,6 @@ const Shop = ({ shopItems }) => {
         <Header />
         <Container marginTop="6">
           <SimpleGrid
-            //direction={["column", "row"]}
-            //w={["100vw"]}
             alignItems="center"
             justifyContent="center"
             //spacing="6"
