@@ -7,7 +7,6 @@ import { Header } from "../../components/layout/Header";
 import ShopItemCard from "../../components/cards/ShopItemCard";
 
 const Shop = ({ shopItems }) => {
-  if (error) return <div>Error</div>;
   if (!shopItems)
     return (
       <Flex
@@ -62,7 +61,10 @@ export async function getStaticProps() {
       "Content-Type": "application/json",
     },
   });
-  const shopItems = await response.json();
+  let shopItems = await response.json();
+
+  if (!shopItems)
+    shopItems = [{ name: "Moss Plant", value: 20, slug: "moss-plant" }];
 
   return {
     props: { shopItems },
