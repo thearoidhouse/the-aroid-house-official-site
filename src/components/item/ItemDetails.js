@@ -1,6 +1,5 @@
 import {
   chakra,
-  Image,
   Flex,
   Center,
   Spacer,
@@ -8,14 +7,12 @@ import {
   Text,
   useToast,
 } from "@chakra-ui/react";
-import Zoom from "react-medium-image-zoom";
 import "react-medium-image-zoom/dist/styles.css";
 import { AddMinus } from "../buttons/AddMinus";
 import { BigButton } from "../buttons/BigButton";
 import { SizeDropDown } from "../buttons/SizeDropDown";
 import { CartContext } from "../../context/CartContext";
 import React, { useState, useContext, useEffect } from "react";
-import { updateTypePredicateNodeWithModifier } from "typescript";
 
 export const ItemDetails = ({
   shopItemName,
@@ -25,21 +22,15 @@ export const ItemDetails = ({
 }) => {
   const toast = useToast();
 
-  // const [id, setID] = useState(0);
-  // const [name, setName] = useState("");
   const [variant, setVariant] = useState("");
   const [value, setValue] = useState(0);
   const [quantity, setQuantity] = useState(1);
 
-  const [items, setItems] = useContext(CartContext);
+  const [setItems] = useContext(CartContext);
 
   const updateID = (e) => {
     setID(itemID);
   };
-
-  // const updateName = (e) => {
-  //   setName(itemName);
-  // };
 
   const updateVariant = (variant) => {
     setVariant(variant);
@@ -54,7 +45,6 @@ export const ItemDetails = ({
   };
 
   const addItem = (e) => {
-    e.preventDefault();
     if (variant != "") {
       setItems((prevItems) => [
         ...prevItems,
@@ -79,16 +69,10 @@ export const ItemDetails = ({
       });
     }
   };
-  //setName(itemName);
-
-  // useEffect(() => {
-  //   // setID(itemID);
-  //   setName(itemName);
-  // }, []);
 
   useEffect(() => {
     const relevantVariant = shopItemVariants.find(
-      (variant) => variant.variant == variant
+      (itemVariant) => itemVariant.variant == variant
     );
     if (!relevantVariant) updateValue(0);
     if (relevantVariant) updateValue(quantity * relevantVariant.value);
@@ -133,12 +117,7 @@ export const ItemDetails = ({
           );
         })}
       </Flex>
-      <Flex
-        direction="column"
-        //width={["80vw", "20vw"]}
-        justify="space-around"
-        paddingTop="3"
-      >
+      <Flex direction="column" justify="space-around" paddingTop="3">
         <Flex direction="row" align="center">
           <Text color="background" fontSize="lg">
             Quantity
