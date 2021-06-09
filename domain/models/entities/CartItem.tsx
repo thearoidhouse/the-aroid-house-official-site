@@ -1,31 +1,40 @@
 import { Entity, BaseDomainEntity, Result, UniqueEntityID } from "types-ddd";
-import { ShopItem } from "domain/models/entities/ShopItem";
 
 interface CartItemProps extends BaseDomainEntity {
-  shopItem: ShopItem;
+  shopItemName: string;
+  shopItemSlug: string;
   quantity: number;
   variant?: string;
+  value: number;
 }
 
 export class CartItem extends Entity<CartItemProps> {
-  public shopItem: ShopItem;
+  public shopItemName: string;
+  public shopItemSlug: string;
   public quantity: number;
   public variant?: string;
   public value: number;
 
   private constructor(props: CartItemProps, id?: UniqueEntityID) {
     super(props, id);
-    this.shopItem = props.shopItem;
+    this.shopItemName = props.shopItemName;
+    this.shopItemSlug = props.shopItemSlug;
     this.quantity = props.quantity;
     this.variant = props.variant;
-    this.value = this.shopItem.value * this.quantity;
+    this.value = props.value;
   }
 
   public static create(
     props: CartItemProps,
     id?: UniqueEntityID
   ): Result<CartItem> {
-    if (!props.shopItem && !props.quantity && !props.variant) {
+    if (
+      !props.shopItemName &&
+      !props.shopItemSlug &&
+      !props.quantity &&
+      !props.variant &&
+      !props.value
+    ) {
       return Result.fail<CartItem>(
         "Required details for cart item is not provided"
       );
