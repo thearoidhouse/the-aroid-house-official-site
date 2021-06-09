@@ -1,12 +1,4 @@
-import {
-  Box,
-  Flex,
-  Button,
-  Spacer,
-  Heading,
-  chakra,
-  Icon,
-} from "@chakra-ui/react";
+import { Box, Flex, Spacer, Heading } from "@chakra-ui/react";
 
 import Link from "next/link";
 import CartButton from "../buttons/CartButton";
