@@ -42,7 +42,8 @@ const Shop = ({ shopItems }) => {
 export default Shop;
 
 export async function getStaticProps() {
-  const response = await fetch("http://localhost:3000/api/shop");
+  import { server } from "config.js";
+  const response = await fetch(`${server}/api/shop`);
   const shopItems = await response.json();
 
   return {
