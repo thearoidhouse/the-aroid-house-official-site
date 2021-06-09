@@ -147,7 +147,7 @@ const Payment = (props) => {
         <chakra.h3 fontSize="md" color="background">
           $
           {hello.reduce((accumulator, cartItem) => {
-            return accumulator + cartItem.price;
+            return accumulator + cartItem.value;
           }, 0) + delivery}
         </chakra.h3>
       </Flex>
