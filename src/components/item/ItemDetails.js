@@ -15,26 +15,10 @@ import { BigButton } from "../buttons/BigButton";
 import { SizeDropDown } from "../buttons/SizeDropDown";
 import { CartContext } from "../../context/CartContext";
 import React, { useState, useContext, useEffect } from "react";
+import { updateTypePredicateNodeWithModifier } from "typescript";
 
-export const ItemDetails = () => {
+export const ItemDetails = ({ itemName, itemDescription, itemVariants }) => {
   const toast = useToast();
-  const itemID = 5;
-  const itemName = "Slim moss pole";
-  const itemDescription = "Mose pole. damn good blah.";
-  const sizes = [
-    {
-      size: "1M",
-      price: "$15",
-    },
-    {
-      size: "0.5M",
-      price: "$10",
-    },
-  ];
-  const variant = {
-    "1M": "15",
-    "0.5M": "10",
-  };
 
   const [id, setID] = useState(0);
   const [name, setName] = useState("");
@@ -57,7 +41,7 @@ export const ItemDetails = () => {
     setSize(size);
   };
 
-  const updatPrice = (price) => {
+  const updatePrice = (price) => {
     console.log(price);
     setPrice(price);
   };
@@ -97,14 +81,16 @@ export const ItemDetails = () => {
   //setName(itemName);
 
   useEffect(() => {
-    setID(itemID);
+    // setID(itemID);
     setName(itemName);
   }, []);
 
   useEffect(() => {
-    const price = quantity * variant[size];
-
-    updatPrice(price);
+    const relevantVariant = itemVariants.find(
+      (variant) => variant.variant == size
+    );
+    if (!relevantVariant) updatePrice(0);
+    if (relevantVariant) updatePrice(quantity * relevantVariant.value);
   }, [size, quantity]);
 
   return (
@@ -129,35 +115,18 @@ export const ItemDetails = () => {
         {itemDescription}
       </Text>
       <Text color="background" fontSize="xl" paddingTop="5">
-        Sizes:
+        Variants:
       </Text>
-      <Flex
-        direction="column"
-        justify="space-around"
-        //width={["80vw", "20vw"]}
-      >
-        {/* {sizes.map((sizes, i) => {
+      <Flex direction="column" justify="space-around">
+        {itemVariants.map((variant, i) => {
           return (
             <Flex key={i} direction="row">
               <Text color="background" fontSize="xl">
-                {sizes.size}
+                {variant.variant}
               </Text>
               <Spacer />
               <Text color="background" fontSize="xl">
-                {sizes.price}
-              </Text>
-            </Flex>
-          );
-        })} */}
-        {Object.keys(variant).map((keyName, i) => {
-          return (
-            <Flex key={i} direction="row">
-              <Text color="background" fontSize="xl">
-                {keyName}
-              </Text>
-              <Spacer />
-              <Text color="background" fontSize="xl">
-                ${variant[keyName]}
+                S$ {variant.value}
               </Text>
             </Flex>
           );
@@ -178,14 +147,10 @@ export const ItemDetails = () => {
         </Flex>
         <Flex direction="row" align="center" paddingTop="3">
           <Text color="background" fontSize="lg">
-            Variants
+            Variant
           </Text>
           <Spacer />
-          <SizeDropDown
-            //sizes={sizes}
-            variant={variant}
-            onChange={updateSize}
-          />
+          <SizeDropDown variants={itemVariants} onChange={updateSize} />
         </Flex>
       </Flex>
       <Center paddingTop="5">
