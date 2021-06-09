@@ -14,6 +14,7 @@ const ShopItemIndividualCard = React.forwardRef(function ShopItemIndividualCard(
         w="2xs"
         mx="auto"
         marginBottom={-20}
+        _hover={{ cursor: "pointer" }}
       >
         <chakra.span
           bg="gray.300"
