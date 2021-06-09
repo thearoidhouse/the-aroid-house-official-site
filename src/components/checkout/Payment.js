@@ -2,12 +2,9 @@ import React, { useContext } from "react";
 import { Box, chakra, Divider, Flex, Spacer } from "@chakra-ui/react";
 import Link from "next/link";
 
-import { PaymentContext } from "../../context/PaymentContext";
-
-import DeleteButton from "../buttons/DeleteButton";
-import { SmallButton } from "../buttons/SmallButton";
-import Instructions from "./Instructions";
 import Item from "./Item";
+import { PaymentContext } from "../../context/PaymentContext";
+import { SmallButton } from "../buttons/SmallButton";
 
 import { Customer } from "domain/models/entities/Customer";
 
@@ -44,18 +41,9 @@ const Payment = (props) => {
     const newList = paymentItem.filter(
       (item) => paymentItem.indexOf(item) !== 1
     );
-    //console.log(newList);
 
     setPaymentItem(newList);
   };
-
-  // useEffect(() => {
-  //   name = paymentItem[1].firstName + " " + paymentItem[1].lastName;
-  //   email = paymentItem[1].email;
-  //   address = paymentItem[1].address;
-  //   number = paymentItem[1].phone;
-  //   delivery = paymentItem[0].deliveryCost;
-  // }, [paymentItem]);
 
   if (paymentItem.length == 2) {
     name = paymentItem[1].firstName + " " + paymentItem[1].lastName;
@@ -73,8 +61,6 @@ const Payment = (props) => {
       paddingTop="2"
       paddingBottom="2"
       height="full"
-      //backgroundColor="text"
-
       width={["100vw", "55vw"]}
     >
       <Flex direction={["column", "row"]}>
@@ -113,7 +99,7 @@ const Payment = (props) => {
           {address}
         </Box>
       </Flex>
-      <chakra.h3 fontSize="2xl" color="background">
+      <chakra.h3 fontSize="xl" color="background">
         Items
       </chakra.h3>
       <Divider width={["80vw", "55vw"]} />
@@ -121,9 +107,6 @@ const Payment = (props) => {
       {hello.map((item, i) => {
         return <Item item={item} key={i} index={i} />;
       })}
-
-      {/* <Item />
-      <Item /> */}
       <Flex direction="row" paddingBottom="2" width={["80vw", "55vw"]}>
         <chakra.h3 color="background" fontSize="lg">
           Delivery
@@ -134,13 +117,8 @@ const Payment = (props) => {
         </chakra.h3>
       </Flex>
       <Divider width={["80vw", "55vw"]} />
-      <Flex
-        direction="row"
-        paddingLeft="5"
-        paddingTop="2"
-        width={["80vw", "55vw"]}
-      >
-        <chakra.h3 fontSize="md" color="background">
+      <Flex direction="row" paddingTop="2" width={["80vw", "55vw"]}>
+        <chakra.h3 fontSize="lg" color="background">
           Total
         </chakra.h3>
         <Spacer />
@@ -151,12 +129,6 @@ const Payment = (props) => {
           }, 0) + delivery}
         </chakra.h3>
       </Flex>
-      {/* <Center padding="5">
-        <chakra.h3 fontSize="3xl" color="background">
-          UUID: danny6659
-        </chakra.h3>
-      </Center>
-      <Instructions /> */}
 
       <Flex
         direction="row"
