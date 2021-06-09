@@ -19,12 +19,15 @@
     "formik": "^2.2.9",
     "framer-motion": "^4.0.3",
     "keen-slider": "^5.4.1",
+    "mongodb": "^3.6.9",
     "next": "latest",
+    "next-auth": "^3.25.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-icons": "^4.2.0",
     "react-medium-image-zoom": "^4.0.0",
-    "react-multi-carousel": "^2.6.3"
+    "react-multi-carousel": "^2.6.3",
+    "types-ddd": "^0.0.9"
   },
   "license": "MIT",
   "devDependencies": {
