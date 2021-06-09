@@ -16,12 +16,7 @@ export const Header = () => {
     <Flex direction="row" padding="5" align="center">
       <Link href="/">
         <Box fontStyle="italic" as="button">
-          <Heading
-            fontSize="xl"
-            fontStyle="italic"
-            textDecoration="underline"
-            color="text"
-          >
+          <Heading fontSize="xl" color="text">
             TheAroidHouse
           </Heading>
         </Box>
