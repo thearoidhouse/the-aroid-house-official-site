@@ -121,7 +121,7 @@ function cart() {
             <chakra.h3 fontSize="md" color="background">
               S${" "}
               {items.reduce((accumulator, cartItem) => {
-                return accumulator + cartItem.price;
+                return accumulator + cartItem.value;
               }, 0) + deliveryCost}
             </chakra.h3>
           </Flex>

@@ -11,11 +11,11 @@ const CartItem = (props) => {
         <Flex direction="column" width="80vw" paddingBottom="2">
           <HStack paddingLeft="5" align="center">
             <chakra.h3 fontSize="md" color="background" paddingTop="2">
-              {props.item.name}
+              {props.item.shopItemName}
             </chakra.h3>
             <Spacer />
             <chakra.h3 fontSize="md" color="background">
-              S$ {props.item.price}
+              S$ {props.item.value}
             </chakra.h3>
           </HStack>
 
@@ -34,7 +34,7 @@ const CartItem = (props) => {
             </chakra.h3>
             <Spacer />
             <chakra.h3 fontSize="md" color="background">
-              {props.item.size}
+              {props.item.variant}
             </chakra.h3>
           </Flex>
         </Flex>

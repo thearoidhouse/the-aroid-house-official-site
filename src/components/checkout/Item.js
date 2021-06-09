@@ -6,11 +6,11 @@ const Item = (props) => {
     <Flex direction="column" width={["80vw", "55vw"]} paddingBottom="2">
       <Flex direction="row" paddingLeft="5" align="center">
         <chakra.h3 fontSize="md" color="background" paddingTop="2">
-          {props.item.name}
+          {props.item.shopItemName}
         </chakra.h3>
         <Spacer />
         <chakra.h3 fontSize="md" color="background">
-          $ {props.item.price}
+          $ {props.item.value}
         </chakra.h3>
       </Flex>
 
@@ -29,7 +29,7 @@ const Item = (props) => {
         </chakra.h3>
         <Spacer />
         <chakra.h3 fontSize="md" color="background" paddingBottom="2">
-          {props.item.size}
+          {props.item.variant}
         </chakra.h3>
       </Flex>
       <Divider />

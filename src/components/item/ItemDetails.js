@@ -17,13 +17,18 @@ import { CartContext } from "../../context/CartContext";
 import React, { useState, useContext, useEffect } from "react";
 import { updateTypePredicateNodeWithModifier } from "typescript";
 
-export const ItemDetails = ({ itemName, itemDescription, itemVariants }) => {
+export const ItemDetails = ({
+  shopItemName,
+  shopItemDescription,
+  shopItemVariants,
+  shopItemSlug,
+}) => {
   const toast = useToast();
 
-  const [id, setID] = useState(0);
-  const [name, setName] = useState("");
-  const [size, setSize] = useState("");
-  const [price, setPrice] = useState(0);
+  // const [id, setID] = useState(0);
+  // const [name, setName] = useState("");
+  const [variant, setVariant] = useState("");
+  const [value, setValue] = useState(0);
   const [quantity, setQuantity] = useState(1);
 
   const [items, setItems] = useContext(CartContext);
@@ -32,32 +37,28 @@ export const ItemDetails = ({ itemName, itemDescription, itemVariants }) => {
     setID(itemID);
   };
 
-  const updateName = (e) => {
-    setName(itemName);
+  // const updateName = (e) => {
+  //   setName(itemName);
+  // };
+
+  const updateVariant = (variant) => {
+    setVariant(variant);
   };
 
-  const updateSize = (size) => {
-    // console.log("i was clicked", size);
-    setSize(size);
-  };
-
-  const updatePrice = (price) => {
-    console.log(price);
-    setPrice(price);
+  const updateValue = (value) => {
+    setValue(value);
   };
 
   const updateQuantity = (quantity) => {
-    // setPrice(e.target.value);
     setQuantity(quantity);
-    //console.log(quantity);
   };
 
   const addItem = (e) => {
     e.preventDefault();
-    if (size != "") {
+    if (variant != "") {
       setItems((prevItems) => [
         ...prevItems,
-        { id, name, size, quantity, price },
+        { shopItemName, variant, quantity, value, shopItemSlug },
       ]);
       toast({
         title: "Item added",
@@ -80,18 +81,18 @@ export const ItemDetails = ({ itemName, itemDescription, itemVariants }) => {
   };
   //setName(itemName);
 
-  useEffect(() => {
-    // setID(itemID);
-    setName(itemName);
-  }, []);
+  // useEffect(() => {
+  //   // setID(itemID);
+  //   setName(itemName);
+  // }, []);
 
   useEffect(() => {
-    const relevantVariant = itemVariants.find(
-      (variant) => variant.variant == size
+    const relevantVariant = shopItemVariants.find(
+      (variant) => variant.variant == variant
     );
-    if (!relevantVariant) updatePrice(0);
-    if (relevantVariant) updatePrice(quantity * relevantVariant.value);
-  }, [size, quantity]);
+    if (!relevantVariant) updateValue(0);
+    if (relevantVariant) updateValue(quantity * relevantVariant.value);
+  }, [variant, quantity]);
 
   return (
     <VStack
@@ -109,16 +110,16 @@ export const ItemDetails = ({ itemName, itemDescription, itemVariants }) => {
         fontWeight="bold"
         marginTop="5"
       >
-        {itemName}
+        {shopItemName}
       </chakra.h3>
       <Text color="background" fontSize="xl" paddingTop="5">
-        {itemDescription}
+        {shopItemDescription}
       </Text>
       <Text color="background" fontSize="xl" paddingTop="5">
         Variants:
       </Text>
       <Flex direction="column" justify="space-around">
-        {itemVariants.map((variant, i) => {
+        {shopItemVariants.map((variant, i) => {
           return (
             <Flex key={i} direction="row">
               <Text color="background" fontSize="xl">
@@ -150,7 +151,7 @@ export const ItemDetails = ({ itemName, itemDescription, itemVariants }) => {
             Variant
           </Text>
           <Spacer />
-          <SizeDropDown variants={itemVariants} onChange={updateSize} />
+          <SizeDropDown variants={shopItemVariants} onChange={updateVariant} />
         </Flex>
       </Flex>
       <Center paddingTop="5">

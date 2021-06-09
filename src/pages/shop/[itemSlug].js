@@ -49,9 +49,10 @@ function ItemSlug() {
             //marginTop="10"
           >
             <ItemDetails
-              itemName={data.name}
-              itemDescription={data.description}
-              itemVariants={data.variants}
+              shopItemName={data.name}
+              shopItemDescription={data.description}
+              shopItemVariants={data.variants}
+              shopItemSlug={data.slug}
             />
           </Flex>
         </Flex>
