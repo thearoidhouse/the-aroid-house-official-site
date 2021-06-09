@@ -119,7 +119,7 @@ function cart() {
             </chakra.h3>
             <Spacer />
             <chakra.h3 fontSize="md" color="background">
-              $
+              S${" "}
               {items.reduce((accumulator, cartItem) => {
                 return accumulator + cartItem.price;
               }, 0) + deliveryCost}
@@ -127,14 +127,7 @@ function cart() {
           </Flex>
           <Flex paddingTop="5" justifyContent="flex-end">
             <Link href={items.length == 0 ? "" : "/checkout"}>
-              <SmallButton
-                name={"Check Out"}
-                // onClick={() => {
-                //   addPaymentItem;
-
-                // }}
-                onClick={addPaymentItem}
-              />
+              <SmallButton name={"Check Out"} onClick={addPaymentItem} />
             </Link>
           </Flex>
         </Flex>

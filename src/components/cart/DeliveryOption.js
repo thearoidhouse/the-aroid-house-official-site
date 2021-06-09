@@ -14,7 +14,7 @@ import DeleteButton from "../buttons/DeleteButton";
 import { useState } from "react";
 
 const DeliveryOption = (props) => {
-  const [boxIndex, setBoxIndex] = useState(0);
+  const [boxIndex, setBoxIndex] = useState(1);
 
   return (
     <Box>
@@ -28,6 +28,7 @@ const DeliveryOption = (props) => {
         <Flex direction="row">
           <Checkbox
             color="background"
+            colorScheme="yellow"
             size="lg"
             onChange={() => {
               setBoxIndex(0);
@@ -39,13 +40,14 @@ const DeliveryOption = (props) => {
           </Checkbox>
           <Spacer />
           <Text fontSize="md" color="background" hidden={boxIndex == 1}>
-            $0
+            S$ 0
           </Text>
         </Flex>
         <Flex direction="row">
           <Checkbox
             color="background"
             size="lg"
+            colorScheme="yellow"
             onChange={() => {
               setBoxIndex(1);
               props.onChange(1);
@@ -57,7 +59,7 @@ const DeliveryOption = (props) => {
           <Spacer />
 
           <Text fontSize="md" color="background" hidden={boxIndex == 0}>
-            $10
+            S$ 10
           </Text>
         </Flex>
       </Flex>
