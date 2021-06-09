@@ -69,7 +69,7 @@ export class OrderAggregate extends AggregateRoot<OrderAggregateProps> {
     props: OrderAggregateProps,
     id?: UniqueEntityID
   ): Result<OrderAggregate> {
-    if (!id && !props.cart && !props.customer && !props.isSelfCollect) {
+    if (!props.cart && !props.customer && !props.isSelfCollect) {
       return Result.fail<OrderAggregate>(
         "Required details for OrderAggregate are not provided"
       );

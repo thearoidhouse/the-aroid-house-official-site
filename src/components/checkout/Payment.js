@@ -7,6 +7,9 @@ import { PaymentContext } from "../../context/PaymentContext";
 import { SmallButton } from "../buttons/SmallButton";
 
 import { Customer } from "domain/models/entities/Customer";
+import { CartItem } from "domain/models/entities/CartItem";
+import { Cart } from "domain/models/entities/Cart";
+import { OrderAggregate } from "domain/models/aggregates/OrderAggregate";
 
 const Payment = (props) => {
   var name = "";
@@ -35,6 +38,34 @@ const Payment = (props) => {
     }).getResult();
 
     const isSelfCollect = paymentItem[0].deliveryCost == 0;
+
+    // calculate cart items
+    let cartItems = [];
+    paymentItem[0].items.map((item) => {
+      cartItems.push(
+        CartItem.create({
+          shopItemName: item.shopItemName,
+          shopItemSlug: item.shopItemSlug,
+          quantity: item.quantity,
+          variant: item.variant,
+          value: item.value,
+        }).getResult()
+      );
+    });
+
+    const order = OrderAggregate.create({
+      cart: Cart.create({ cartItems: [...cartItems] }).getResult(),
+      isSelfCollect,
+      customer,
+    }).getResult();
+
+    fetch("/api/order/createOrder", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(order),
+    });
   };
 
   const handleRemove = () => {
