@@ -146,7 +146,7 @@ const Payment = (props) => {
         <Flex
           direction="row"
           marginBottom="2"
-          marginLeft="5"
+          paddingLeft="5"
           width={["80vw", "55vw"]}
         >
           <Text color="background">Delivery</Text>
