@@ -1,17 +1,21 @@
+import React, { useRef } from "react";
 import { Box } from "@chakra-ui/react";
-import Lottie from "react-lottie-player";
-
-import landingLottie from "public/landing_lottie.json";
+import("@lottiefiles/lottie-player");
 
 export default function Landing(props) {
+  const ref = useRef(null);
+
   return (
     <Box marginTop={props.marginTop}>
-      <Lottie
+      <lottie-player
+        id="firstLottie"
+        ref={ref}
+        autoplay
         loop
-        animationData={landingLottie}
-        play
-        style={{ width: 350, height: 350 }}
-      />
+        mode="normal"
+        src="https://assets10.lottiefiles.com/packages/lf20_o6hQ8m.json"
+        style={{ width: "350px", height: "350px" }}
+      ></lottie-player>
     </Box>
   );
 }
