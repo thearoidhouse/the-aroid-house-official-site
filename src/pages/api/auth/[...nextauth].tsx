@@ -42,7 +42,7 @@ export default NextAuth({
      * @param  {string} baseUrl  Default base URL of site (can be used as fallback)
      * @return {string}          URL the client will be redirect to
      */
-    async redirect(url, baseUrl) {
+    async redirect(url: string, baseUrl: string): Promise<string> {
       return `${baseUrl}/admin`;
     },
   },
