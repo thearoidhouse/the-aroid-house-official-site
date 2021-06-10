@@ -6,19 +6,11 @@ import {
   Heading,
   Button,
   useDisclosure,
-  Drawer,
-  DrawerBody,
-  DrawerHeader,
-  DrawerOverlay,
-  DrawerContent,
-  DrawerCloseButton,
-  VStack,
   Spinner,
 } from "@chakra-ui/react";
 
 import { useSession } from "next-auth/client";
 import { useRouter } from "next/router";
-import Link from "next/link";
 import useSWR from "swr";
 
 import Wave from "src/components/Wave";
