@@ -24,7 +24,7 @@ const DeliveryOption = (props) => {
             }}
             isChecked={boxIndex == 0}
           >
-            Self collect
+            Self Collect @ Begonia Drive
           </Checkbox>
           <Spacer />
           <Text fontSize="md" color="background" hidden={boxIndex == 1}>

@@ -155,7 +155,7 @@ const Payment = (props) => {
         </Flex>
       ) : (
         <Text marginLeft="5" marginY="2">
-          Self Collect
+          Self Collect @ Begonia Drive
         </Text>
       )}
       <Divider width={["80vw", "55vw"]} />
