@@ -1,18 +1,14 @@
-import React, { useRef } from "react";
-import("@lottiefiles/lottie-player");
+import Lottie from "react-lottie-player";
+
+import thankYouLottie from "public/thankYou_lottie.json";
 
 export default function ThankyouAnimation() {
-  const ref = useRef(null);
-
   return (
-    <lottie-player
-      id="firstLottie"
-      ref={ref}
-      autoplay
+    <Lottie
       loop
-      mode="normal"
-      src="https://assets6.lottiefiles.com/packages/lf20_uyfxzh9u.json"
-      style={{ width: "350px", height: "350px" }}
-    ></lottie-player>
+      animationData={thankYouLottie}
+      play
+      style={{ width: 350, height: 350 }}
+    />
   );
 }
