@@ -12,6 +12,7 @@ function ItemSlug({ itemDetails }) {
         direction="column"
         backgroundColor="background"
         width={["100vw", "60vw"]}
+        height="100vh"
       >
         <Header />
 

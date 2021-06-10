@@ -81,6 +81,7 @@ export const ItemDetails = ({
   return (
     <VStack
       direction="column"
+      height="full"
       width={["100vw", "60vw"]}
       padding={["10", "20"]}
       spacing="4"
