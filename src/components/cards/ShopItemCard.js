@@ -1,5 +1,5 @@
 import React from "react";
-import { Image, Box, Flex, chakra } from "@chakra-ui/react";
+import { Image, Box, Flex, chakra, Text } from "@chakra-ui/react";
 
 const ShopItemIndividualCard = React.forwardRef(function ShopItemIndividualCard(
   { itemName, value, mossImage, onClick, href },
@@ -13,7 +13,6 @@ const ShopItemIndividualCard = React.forwardRef(function ShopItemIndividualCard(
         alignItems="center"
         w="2xs"
         mx="auto"
-        marginBottom={-20}
         _hover={{ cursor: "pointer" }}
       >
         <chakra.span
@@ -26,83 +25,38 @@ const ShopItemIndividualCard = React.forwardRef(function ShopItemIndividualCard(
         >
           <Image width="100%" height="100%" src={mossImage} />
         </chakra.span>
-        <chakra.span
-          //w={{ base: "180px", md: "205px" }}
-          backgroundColor="background"
-          // mt={-20}
-          // mr={15}
-          shadow="lg"
-          //rounded="lg"
-          borderRadius="25px 0px 10px 0px"
-          overflow="hidden"
-          transform={["translate(24%,-100%)"]}
-          // transform="translate(13%,-100%)"
-        >
-          <Box
-            w={{ base: 56, md: 64 }}
-            mt={-10}
-            shadow="lg"
-            rounded="lg"
-            overflow="hidden"
-          >
-            <chakra.h3
-              py={2}
-              textAlign="center"
-              fontWeight="bold"
-              textTransform="uppercase"
-              letterSpacing={1}
-            >
-              Nike Revolt
-            </chakra.h3>
 
-            <Flex
-              alignItems="center"
-              justifyContent="space-between"
-              py={2}
-              px={3}
-            >
-              <chakra.span fontWeight="bold">$129</chakra.span>
-              <chakra.button
-                bg="gray.800"
-                fontSize="xs"
-                fontWeight="bold"
-                color="white"
-                px={2}
-                py={1}
-                rounded="lg"
-                textTransform="uppercase"
-                _hover={{}}
-                _focus={{
-                  outline: "none",
-                }}
-              >
-                Add to cart
-              </chakra.button>
-            </Flex>
-          </Box>
+        <Box
+          width="auto"
+          marginTop={-10}
+          shadow="lg"
+          rounded="lg"
+          overflow="hidden"
+          backgroundColor="background"
+        >
           <chakra.h3
+            px={4}
             py={2}
             textAlign="center"
             fontWeight="bold"
             textTransform="uppercase"
-            textColor="text"
             letterSpacing={1}
-            paddingX="8"
+            textColor="text"
           >
             {itemName}
           </chakra.h3>
+
           <Flex
-            alignItems="center"
-            justifyContent="space-around"
+            justifyContent="center"
+            px={4}
             py={2}
-            px={3}
             backgroundColor="secondaryBackground"
           >
-            <chakra.span fontWeight="bold" textColor="text">
-              From ${value}
-            </chakra.span>
+            <Text fontWeight="bold" textColor="text">
+              From S${value}
+            </Text>
           </Flex>
-        </chakra.span>
+        </Box>
       </Flex>
     </span>
   );

@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Box, chakra, Divider, Flex, Spacer } from "@chakra-ui/react";
+import { Box, chakra, Divider, Flex, Spacer, Text } from "@chakra-ui/react";
 import Link from "next/link";
 
 import Item from "./Item";
@@ -142,35 +142,37 @@ const Payment = (props) => {
       {hello.map((item, i) => {
         return <Item item={item} key={i} index={i} />;
       })}
-      <Flex direction="row" paddingBottom="2" width={["80vw", "55vw"]}>
-        <chakra.h3 color="background" fontSize="lg">
-          Delivery
-        </chakra.h3>
-        <Spacer />
-        <chakra.h3 fontSize="md" color="background">
-          ${delivery}
-        </chakra.h3>
-      </Flex>
+      {delivery > 0 ? (
+        <Flex
+          direction="row"
+          marginBottom="2"
+          marginLeft="5"
+          width={["80vw", "55vw"]}
+        >
+          <Text color="background">Delivery</Text>
+          <Spacer />
+          <Text color="background">S$ {delivery}</Text>
+        </Flex>
+      ) : (
+        <Text marginLeft="5" marginY="2">
+          Self Collect
+        </Text>
+      )}
       <Divider width={["80vw", "55vw"]} />
       <Flex direction="row" paddingTop="2" width={["80vw", "55vw"]}>
-        <chakra.h3 fontSize="lg" color="background">
+        <chakra.h3 fontSize="lg" fontWeight="bold" color="background">
           Total
         </chakra.h3>
         <Spacer />
-        <chakra.h3 fontSize="md" color="background">
-          $
+        <chakra.h3 fontSize="lg" fontWeight="bold" color="background">
+          S${" "}
           {hello.reduce((accumulator, cartItem) => {
             return accumulator + cartItem.value;
           }, 0) + delivery}
         </chakra.h3>
       </Flex>
 
-      <Flex
-        direction="row"
-        paddingTop="5"
-        paddingRight="5"
-        justifyContent="space-between"
-      >
+      <Flex direction="row" marginTop="5" justifyContent="space-between">
         <SmallButton
           name={"Back"}
           onClick={() => {

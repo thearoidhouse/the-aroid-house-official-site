@@ -1,18 +1,17 @@
-import { Flex, chakra, FormControl, FormLabel, Input } from "@chakra-ui/react";
+import {
+  Box,
+  Flex,
+  chakra,
+  FormControl,
+  FormLabel,
+  Input,
+} from "@chakra-ui/react";
 
 import { SmallButton } from "../buttons/SmallButton";
 
 const Details = (props) => {
   return (
-    <Flex
-      direction={["column", "row"]}
-      flexWrap="wrap"
-      //paddingLeft="2"
-      width={["80vw", "60vw"]}
-      paddingTop="2"
-      paddingBottom="2"
-      height="full"
-    >
+    <Flex direction="column" width={["full", "auto"]} height="full">
       <chakra.h3 marginTop="2" fontSize="xl" color="background">
         Contact details
       </chakra.h3>
@@ -66,12 +65,12 @@ const Details = (props) => {
           color="text"
         />
       </FormControl>
-      <Flex paddingTop="5" justifyContent="flex-end">
+      <Flex marginTop="5" justifyContent="flex-end">
         <SmallButton
           onClick={() => {
             props.addPaymentItem();
           }}
-          name={"Next"}
+          name="Next"
         />
       </Flex>
     </Flex>

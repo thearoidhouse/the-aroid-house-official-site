@@ -13,14 +13,14 @@ export const ItemCarousel = ({ images }) => {
     duration: 3000,
     loop: true,
     mode: "free-snap",
-    spacing: 50,
+    spacing: 20,
     dragStart: () => {
       setPause(true);
     },
     dragEnd: () => {
       setPause(false);
     },
-    slidesPerView: 1,
+    slidesPerView: 2,
   });
 
   useEffect(() => {
@@ -44,15 +44,7 @@ export const ItemCarousel = ({ images }) => {
   }, [pause, slider]);
 
   return (
-    <Box className="keen-slider" width={["100vw", "60vw"]} ref={sliderRef}>
-      {/* {[...Array(6)].map((_, i) => {
-        return (
-          <div key={i} className="keen-slider__slide">
-            <ItemCarouselImage src={`/mosses/moss${i}.png`} />
-          </div>
-        );
-      })} */}
-
+    <Box className="keen-slider" width={["100vw", "100vw"]} ref={sliderRef}>
       {images.map((image, i) => {
         return (
           <div key={i} className="keen-slider__slide">

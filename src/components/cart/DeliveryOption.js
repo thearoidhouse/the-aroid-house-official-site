@@ -17,7 +17,7 @@ const DeliveryOption = (props) => {
           <Checkbox
             color="background"
             colorScheme="yellow"
-            size="lg"
+            size="md"
             onChange={() => {
               setBoxIndex(0);
               props.onChange(0);
@@ -34,7 +34,7 @@ const DeliveryOption = (props) => {
         <Flex direction="row">
           <Checkbox
             color="background"
-            size="lg"
+            size="md"
             colorScheme="yellow"
             onChange={() => {
               setBoxIndex(1);

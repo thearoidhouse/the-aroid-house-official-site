@@ -1,59 +1,42 @@
 import Link from "next/link";
 import { server } from "config.js";
 
-import { Container, Center, Flex, SimpleGrid, Spinner } from "@chakra-ui/react";
+import { Box, Center, Flex } from "@chakra-ui/react";
 
 import { Header } from "../../components/layout/Header";
 import ShopItemCard from "../../components/cards/ShopItemCard";
 
 const Shop = ({ shopItems }) => {
-  if (!shopItems)
-    return (
-      <Flex
-        direction="column"
-        height="100vh"
-        justifyContent="center"
-        alignItems="center"
-      >
-        <Spinner />
-      </Flex>
-    );
-
-  if (shopItems)
-    return (
-      <Center backgroundColor="background">
-        <Flex
-          direction="column"
-          width={["100vw", "60vw"]}
-          backgroundColor="background"
-        >
-          <Header />
-          <Container marginTop="6">
-            <SimpleGrid
-              alignItems="center"
-              justifyContent="center"
-              //spacing="6"
-              columns={[1, 2, 2]}
-              spacingX="350"
-              spacingY="6"
-              marginRight={["0", "80"]}
+  return (
+    <Box height="100vh" backgroundColor="background">
+      <Flex direction="column" height="auto" backgroundColor="background">
+        <Center>
+          <Flex direction="column" width={["100vw", "60vw"]}>
+            <Header />
+            <Flex
+              direction={["column", "row"]}
+              justifyContent="space-around"
+              flexWrap="wrap"
             >
               {shopItems.map((item, i) => {
                 return (
-                  <Link href={`/shop/${item.slug}`} key={i} passHref>
-                    <ShopItemCard
-                      itemName={item.name}
-                      value={item.value}
-                      mossImage={item.images[0]}
-                    />
-                  </Link>
+                  <Box marginBottom="4" marginX="4">
+                    <Link href={`/shop/${item.slug}`} key={i} passHref>
+                      <ShopItemCard
+                        itemName={item.name}
+                        value={item.value}
+                        mossImage={item.images[0]}
+                      />
+                    </Link>
+                  </Box>
                 );
               })}
-            </SimpleGrid>
-          </Container>
-        </Flex>
-      </Center>
-    );
+            </Flex>
+          </Flex>
+        </Center>
+      </Flex>
+    </Box>
+  );
 };
 
 export default Shop;

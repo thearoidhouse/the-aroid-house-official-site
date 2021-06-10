@@ -82,12 +82,12 @@ export const ItemDetails = ({
     <VStack
       direction="column"
       width={["100vw", "60vw"]}
+      paddingX="10"
       padding="5"
-      //alignSelf="center"
-      align={[null, "center"]}
       spacing="4"
+      align="null"
     >
-      <chakra.h3
+      <Text
         fontStyle="heading"
         color="background"
         fontSize="3xl"
@@ -95,7 +95,7 @@ export const ItemDetails = ({
         marginTop="5"
       >
         {shopItemName}
-      </chakra.h3>
+      </Text>
       <Text color="background" fontSize="xl" paddingTop="5">
         {shopItemDescription}
       </Text>

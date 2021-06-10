@@ -6,25 +6,26 @@ import { ItemCarousel } from "../../components/item/ItemCarousel";
 import { ItemDetails } from "../../components/item/ItemDetails";
 
 function ItemSlug({ itemDetails }) {
-  //const mossImage = ["/moss/moss0.png", "/moss/moss1.png", "/moss/moss2.png"];
-
   return (
     <Center backgroundColor="background">
       <Flex
-        height="100vh"
         direction="column"
         backgroundColor="background"
         width={["100vw", "60vw"]}
       >
         <Header />
+
         <Center>
           <ItemCarousel images={itemDetails.images} />
         </Center>
+
         <Flex
           backgroundColor="text"
           height="full"
           borderRadius="20px 20px 0px 0px"
           direction="column"
+          paddingBottom="8"
+          marginTop="4"
         >
           <ItemDetails
             shopItemName={itemDetails.name}

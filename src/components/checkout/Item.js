@@ -1,37 +1,17 @@
-import { Flex, Spacer, chakra, Divider } from "@chakra-ui/react";
+import { Flex, Spacer, Text, Divider } from "@chakra-ui/react";
 
 const Item = (props) => {
   return (
-    <Flex direction="column" width={["80vw", "55vw"]} paddingBottom="2">
-      <Flex direction="row" paddingLeft="5" align="center">
-        <chakra.h3 fontSize="md" color="background" paddingTop="2">
-          {props.item.shopItemName}
-        </chakra.h3>
+    <Flex direction="column" width={["80vw", "55vw"]} marginBottom="2">
+      <Flex direction="row" marginLeft="5" align="center">
+        <Text color="background" marginTop="2">
+          {props.item.variant} {props.item.shopItemName} x {props.item.quantity}
+        </Text>
         <Spacer />
-        <chakra.h3 fontSize="md" color="background">
-          $ {props.item.value}
-        </chakra.h3>
+        <Text fontSize="md" color="background">
+          S$ {props.item.value}
+        </Text>
       </Flex>
-
-      <Flex direction="row" paddingLeft="10" width="40vw" paddingTop="2">
-        <chakra.h3 fontSize="md" color="background">
-          Quantity
-        </chakra.h3>
-        <Spacer />
-        <chakra.h3 fontSize="md" color="background">
-          {props.item.quantity}
-        </chakra.h3>
-      </Flex>
-      <Flex direction="row" paddingLeft="10" width="40vw" paddingTop="2">
-        <chakra.h3 fontSize="md" color="background">
-          Size
-        </chakra.h3>
-        <Spacer />
-        <chakra.h3 fontSize="md" color="background" paddingBottom="2">
-          {props.item.variant}
-        </chakra.h3>
-      </Flex>
-      <Divider />
     </Flex>
   );
 };

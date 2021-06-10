@@ -104,21 +104,14 @@ function checkout() {
 
   return (
     <Center backgroundColor="background">
-      <Flex
-        height="full"
-        direction="column"
-        //alignContent="center"
-        backgroundColor="background"
-        direction="column"
-        width={["100vw", "60vw"]}
-      >
+      <Flex width={["full", "60vw"]} height="100vh" direction="column">
         <HeaderCheckout />
         <Flex
           backgroundColor="text"
-          height="100vh"
+          height="150vh"
+          width="auto"
           borderRadius="20px 20px 0px 0px"
           direction="column"
-          //padding="5"
         >
           <Tabs
             variant="enclosed"
@@ -148,23 +141,21 @@ function checkout() {
             </TabList>
             <TabPanels>
               <TabPanel color="background">
-                <Center>
-                  <Details
-                    setTabIndex={setTabIndex}
-                    paymentItem={paymentItem}
-                    addPaymentItem={addPaymentItem}
-                    firstName={firstName}
-                    lastName={lastName}
-                    email={email}
-                    address={address}
-                    phone={phone}
-                    updateFirstName={updateFirstName}
-                    updateLastName={updateLastName}
-                    updateEmail={updateEmail}
-                    updateAddress={updateAddress}
-                    updatePhone={updatePhone}
-                  />
-                </Center>
+                <Details
+                  setTabIndex={setTabIndex}
+                  paymentItem={paymentItem}
+                  addPaymentItem={addPaymentItem}
+                  firstName={firstName}
+                  lastName={lastName}
+                  email={email}
+                  address={address}
+                  phone={phone}
+                  updateFirstName={updateFirstName}
+                  updateLastName={updateLastName}
+                  updateEmail={updateEmail}
+                  updateAddress={updateAddress}
+                  updatePhone={updatePhone}
+                />
               </TabPanel>
               <TabPanel color="background" backgroundColor="text">
                 <Center>

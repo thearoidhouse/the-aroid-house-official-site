@@ -2,7 +2,7 @@ import {
   Flex,
   Heading,
   Spacer,
-  chakra,
+  Text,
   Center,
   useToast,
 } from "@chakra-ui/react";
@@ -103,16 +103,16 @@ function cart() {
             paddingTop="2"
             width={["80vw", "57vw"]}
           >
-            <chakra.h3 fontSize="md" color="background">
+            <Text fontSize="lg" fontWeight="bold" color="background">
               Total
-            </chakra.h3>
+            </Text>
             <Spacer />
-            <chakra.h3 fontSize="md" color="background">
+            <Text fontSize="md" fontWeight="bold" color="background">
               S${" "}
               {items.reduce((accumulator, cartItem) => {
                 return accumulator + cartItem.value;
               }, 0) + deliveryCost}
-            </chakra.h3>
+            </Text>
           </Flex>
           <Flex paddingTop="5" justifyContent="flex-end">
             <Link href={items.length == 0 ? "" : "/checkout"}>
