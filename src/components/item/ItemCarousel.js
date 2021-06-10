@@ -44,7 +44,12 @@ export const ItemCarousel = ({ images }) => {
   }, [pause, slider]);
 
   return (
-    <Box className="keen-slider" width={["100vw", "100vw"]} ref={sliderRef}>
+    <Box
+      className="keen-slider"
+      width={["100vw", "100vw"]}
+      ref={sliderRef}
+      backgroundColor="background"
+    >
       {images.map((image, i) => {
         return (
           <div key={i} className="keen-slider__slide">
