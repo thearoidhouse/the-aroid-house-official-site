@@ -7,8 +7,6 @@ export const AddMinus = (props) => {
       defaultValue: 1,
       min: 1,
       onChange: (_, valueAsNumber) => props.onChange(valueAsNumber),
-      //max: 6,
-      //precision: 2,
     });
 
   const inc = getIncrementButtonProps();
@@ -16,10 +14,7 @@ export const AddMinus = (props) => {
   const input = getInputProps({ isReadOnly: true });
 
   return (
-    <HStack
-      maxW="150px" //backgroundColor="background"
-      borderRadius="5"
-    >
+    <HStack maxW="180px" borderRadius="5">
       <Button
         backgroundColor="buttonBackground"
         color="background"
@@ -30,6 +25,7 @@ export const AddMinus = (props) => {
       </Button>
 
       <Input backgroundColor="background" {...input} />
+
       <Button
         backgroundColor="buttonBackground"
         color="background"
