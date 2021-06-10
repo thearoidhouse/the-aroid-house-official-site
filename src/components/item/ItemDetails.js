@@ -82,10 +82,9 @@ export const ItemDetails = ({
     <VStack
       direction="column"
       width={["100vw", "60vw"]}
-      paddingX="10"
-      padding="5"
+      padding={["10", "20"]}
       spacing="4"
-      align="null"
+      alignItems="flex-start"
     >
       <Text
         fontStyle="heading"
@@ -102,7 +101,7 @@ export const ItemDetails = ({
       <Text color="background" fontSize="xl" paddingTop="5">
         Variants:
       </Text>
-      <Flex direction="column" justify="space-around">
+      <Flex direction="column" width="full" justify="space-between">
         {shopItemVariants.map((variant, i) => {
           return (
             <Flex key={i} direction="row">
@@ -117,7 +116,12 @@ export const ItemDetails = ({
           );
         })}
       </Flex>
-      <Flex direction="column" justify="space-around" paddingTop="3">
+      <Flex
+        direction="column"
+        width="full"
+        justify="space-around"
+        marginTop="3"
+      >
         <Flex direction="row" align="center">
           <Text color="background" fontSize="lg">
             Quantity
@@ -133,7 +137,7 @@ export const ItemDetails = ({
           <SizeDropDown variants={shopItemVariants} onChange={updateVariant} />
         </Flex>
       </Flex>
-      <Center paddingTop="5">
+      <Center width="full" paddingTop="5">
         <BigButton name={"Add to cart"} onClick={addItem} />
       </Center>
     </VStack>
