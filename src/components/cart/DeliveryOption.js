@@ -9,9 +9,10 @@ const DeliveryOption = (props) => {
       <Flex
         direction="column"
         paddingLeft="5"
-        width={["80vw", "57vw"]}
+        width={["80vw", "auto"]}
         paddingTop="2"
         paddingBottom="2"
+        paddingRight={["0", "3"]}
       >
         <Flex direction="row">
           <Checkbox

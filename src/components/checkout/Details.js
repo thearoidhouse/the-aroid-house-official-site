@@ -11,7 +11,12 @@ import { SmallButton } from "../buttons/SmallButton";
 
 const Details = (props) => {
   return (
-    <Flex direction="column" width={["full", "auto"]} height="full">
+    <Flex
+      direction="column"
+      width={["full", "auto"]}
+      height="full"
+      paddingX="5"
+    >
       <chakra.h3 marginTop="2" fontSize="xl" color="background">
         Contact details
       </chakra.h3>

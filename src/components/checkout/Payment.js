@@ -94,7 +94,7 @@ const Payment = (props) => {
       direction="column"
       paddingLeft={["5", "0"]}
       paddingTop="2"
-      paddingBottom="2"
+      //paddingBottom="2"
       height="full"
       width={["100vw", "55vw"]}
     >

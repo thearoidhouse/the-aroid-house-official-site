@@ -78,7 +78,7 @@ function cart() {
           height="full"
           borderRadius="20px 20px 0px 0px"
           direction="column"
-          padding="5"
+          padding={["5", "10"]}
         >
           <Heading fontSize="xl" color="background">
             Cart
@@ -101,7 +101,8 @@ function cart() {
             direction="row"
             paddingLeft="5"
             paddingTop="2"
-            width={["80vw", "57vw"]}
+            width={["80vw", "auto"]}
+            paddingRight={["0", "3"]}
           >
             <Text fontSize="lg" fontWeight="bold" color="background">
               Total
