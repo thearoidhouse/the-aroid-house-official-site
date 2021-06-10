@@ -22,6 +22,7 @@ import Link from "next/link";
 import useSWR from "swr";
 
 import Wave from "src/components/Wave";
+import LeftDrawer from "src/components/admin/LeftDrawer";
 import OrderItem from "src/components/OrderItem";
 
 import { OrderAggregate } from "domain/models/aggregates/OrderAggregate";
@@ -41,7 +42,7 @@ const fetcher = (...args: any) => fetch(...args).then((res) => res.json());
 const Orders = () => {
   const { orderState } = useRouter().query;
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const filterBtnRef = useRef(null);
+  const adminControlBtnRef = useRef(null);
 
   const [session, loading] = useSession();
   const { data, error, mutate } = useSWR(
@@ -69,38 +70,12 @@ const Orders = () => {
   if (data) {
     return (
       <>
-        <Drawer
+        <LeftDrawer
           isOpen={isOpen}
-          placement="left"
+          onOpen={onOpen}
           onClose={onClose}
-          finalFocusRef={filterBtnRef}
-        >
-          <DrawerOverlay />
-          <DrawerContent>
-            <DrawerCloseButton />
-            <DrawerHeader>Select order type</DrawerHeader>
-
-            <DrawerBody>
-              <VStack alignItems="flex-start">
-                {Object.keys(orderStateColors).map(
-                  (oState: string, i: number) => {
-                    return (
-                      <Link key={i} href={`/admin/orders/${oState}`} replace>
-                        <Button
-                          // @ts-ignore
-                          colorScheme={orderStateColors[oState]}
-                          onClick={onClose}
-                        >
-                          {oState}
-                        </Button>
-                      </Link>
-                    );
-                  }
-                )}
-              </VStack>
-            </DrawerBody>
-          </DrawerContent>
-        </Drawer>
+          adminControlBtnRef={adminControlBtnRef}
+        />
 
         {/* Start of orders page */}
         <Flex direction="column" height="100vh">
@@ -115,8 +90,8 @@ const Orders = () => {
               <Box position="absolute" marginTop="6">
                 <Heading fontSize="2xl">{orderState} orders</Heading>
 
-                <Button marginTop="2" ref={filterBtnRef} onClick={onOpen}>
-                  Filter Orders
+                <Button marginTop="2" ref={adminControlBtnRef} onClick={onOpen}>
+                  Admin Control
                 </Button>
               </Box>
             </Container>
