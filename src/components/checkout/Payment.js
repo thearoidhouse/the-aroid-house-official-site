@@ -4,6 +4,7 @@ import Link from "next/link";
 
 import Item from "./Item";
 import { PaymentContext } from "../../context/PaymentContext";
+import { CartContext } from "../../context/CartContext";
 import { SmallButton } from "../buttons/SmallButton";
 
 import { Customer } from "domain/models/entities/Customer";
@@ -21,6 +22,7 @@ const Payment = (props) => {
   var delivery = 0;
 
   const [paymentItem, setPaymentItem] = useContext(PaymentContext);
+  const [items, setItems] = useContext(CartContext);
 
   const handleOrderSubmit = () => {
     const firstName = paymentItem[1].firstName;
@@ -66,6 +68,8 @@ const Payment = (props) => {
       },
       body: JSON.stringify(order),
     });
+
+    setItems([]);
   };
 
   const handleRemove = () => {
