@@ -20,8 +20,8 @@ const Shop = ({ shopItems }) => {
             >
               {shopItems.map((item, i) => {
                 return (
-                  <Box marginBottom="4" marginX="4">
-                    <Link href={`/shop/${item.slug}`} key={i} passHref>
+                  <Box key={i} marginBottom="4" marginX="4">
+                    <Link href={`/shop/${item.slug}`} passHref>
                       <ShopItemCard
                         itemName={item.name}
                         value={item.value}
