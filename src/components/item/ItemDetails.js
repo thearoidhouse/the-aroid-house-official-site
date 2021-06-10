@@ -1,18 +1,13 @@
-import {
-  chakra,
-  Flex,
-  Center,
-  Spacer,
-  VStack,
-  Text,
-  useToast,
-} from "@chakra-ui/react";
+import { useState, useContext, useEffect } from "react";
+
+import { Flex, Center, Spacer, VStack, Text, useToast } from "@chakra-ui/react";
 import "react-medium-image-zoom/dist/styles.css";
+
+import Link from "next/link";
 import { AddMinus } from "../buttons/AddMinus";
 import { BigButton } from "../buttons/BigButton";
 import { SizeDropDown } from "../buttons/SizeDropDown";
 import { CartContext } from "../../context/CartContext";
-import React, { useState, useContext, useEffect } from "react";
 
 export const ItemDetails = ({
   shopItemName,
@@ -140,6 +135,11 @@ export const ItemDetails = ({
       </Flex>
       <Center width="full" paddingTop="5">
         <BigButton name={"Add to cart"} onClick={addItem} />
+      </Center>
+      <Center width="full">
+        <Link href="/shop">
+          <BigButton name="Back to shop" />
+        </Link>
       </Center>
     </VStack>
   );
