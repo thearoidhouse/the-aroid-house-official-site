@@ -1,3 +1,10 @@
+{
+  /* NOTE:
+  Remember to change webhook location when domain has changed
+
+  curl -X POST https://api.telegram.org/bot<YOUR-BOT-TOKEN>/setWebhook -H "Content-type: application/json" -d '{"url": "https://project-name.username.vercel.app/api/webhook"}'
+*/
+}
 // Require our Telegram helper package
 import type { NextApiRequest, NextApiResponse } from "next";
 // @ts-ignore
