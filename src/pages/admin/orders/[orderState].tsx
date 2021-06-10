@@ -41,11 +41,16 @@ const fetcher = (...args: any) => fetch(...args).then((res) => res.json());
 
 const Orders = () => {
   const { orderState } = useRouter().query;
-  const { data, error } = useSWR(`/api/order/${orderState}`, fetcher);
-  const [session, loading] = useSession();
-
   const { isOpen, onOpen, onClose } = useDisclosure();
   const filterBtnRef = useRef(null);
+
+  const [session, loading] = useSession();
+  const { data, error } = useSWR(
+    session
+      ? `/api/order/${orderState}?user=${session.user.name}&email=${session.user.email}`
+      : null,
+    fetcher
+  );
 
   if (error) return <div>failed to load</div>;
   if (loading) return null;

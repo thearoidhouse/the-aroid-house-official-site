@@ -29,7 +29,7 @@ export default NextAuth({
         const isValidPassword = validPasswords.includes(password);
 
         if (isValidUser && isValidPassword) {
-          return { name: username, email: "marcus@thearoyhouse.com" };
+          return { name: username, email: process.env.ADMIN_EMAIL };
         }
 
         return null;
