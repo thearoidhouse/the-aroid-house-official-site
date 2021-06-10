@@ -42,12 +42,14 @@ const fetcher = (...args: any) => fetch(...args).then((res) => res.json());
 const Orders = () => {
   const { orderState } = useRouter().query;
   const { data, error } = useSWR(`/api/order/${orderState}`, fetcher);
-  const [session] = useSession();
+  const [session, loading] = useSession();
 
   const { isOpen, onOpen, onClose } = useDisclosure();
   const filterBtnRef = useRef(null);
 
   if (error) return <div>failed to load</div>;
+  if (loading) return null;
+  if (!loading && !session) return <Heading>Only for authorized users</Heading>;
   if (!data)
     return (
       <Flex
@@ -61,9 +63,7 @@ const Orders = () => {
     );
 
   if (data) {
-    return !session ? (
-      <Heading>Only for authorized users</Heading>
-    ) : (
+    return (
       <>
         <Drawer
           isOpen={isOpen}
