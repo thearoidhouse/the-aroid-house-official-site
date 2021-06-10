@@ -5,27 +5,24 @@
   curl -X POST https://api.telegram.org/bot<YOUR-BOT-TOKEN>/setWebhook -H "Content-type: application/json" -d '{"url": "https://project-name.username.vercel.app/api/webhook"}'
 */
 }
-// Require our Telegram helper package
 import type { NextApiRequest, NextApiResponse } from "next";
-// @ts-ignore
-import TelegramBot from "node-telegram-bot-api";
 
-let MESSAGE_RECEIVERS: string[] = [];
+import { MongoTelegramRepo } from "domain/infrastructure/MongoTelegramRepository";
+import { connectToDatabase } from "src/libs/mongodb";
+
+import TelegramBot from "node-telegram-bot-api";
 
 module.exports = async (request: NextApiRequest, response: NextApiResponse) => {
   // https://github.com/yagop/node-telegram-bot-api/issues/319#issuecomment-324963294
   // Fixes an error with Promise cancellation
   process.env.NTBA_FIX_319 = "test";
+  const { db } = await connectToDatabase();
+  const telegramRepo = MongoTelegramRepo.create(db);
+
   try {
-    // Create our new bot handler with the token
-    // that the Botfather gave us
-    // Use an environment variable so we don't expose it in our code
     const bot = new TelegramBot(process.env.TELEGRAM_TOKEN!);
 
-    // Retrieve the POST request body that gets sent from Telegram
     const { body } = request;
-
-    // Ensure that this is a message being sent
     if (body.message) {
       // Retrieve the ID for this chat
       // and the text that the user sent
@@ -34,32 +31,36 @@ module.exports = async (request: NextApiRequest, response: NextApiResponse) => {
         text: message,
       } = body.message;
 
-      // Only admin can send /addUser {id} command
-      const isAdmin: boolean = id == process.env.TELEGRAM_ADMIN;
-      if (isAdmin && message.startsWith("/addUser")) {
-        const idToAdd = message.split(" ")[1];
-        console.log("idToAdd", idToAdd);
+      // Only admin can send /add {userName} {chatID} command
+      const isAdmin = id == process.env.TELEGRAM_ADMIN;
+      if (isAdmin && message.startsWith("/add")) {
+        const newUserName = message.split(" ")[1]; // {userName}
+        const newChatID = message.split(" ")[2]; // {chatID}
 
-        // TODO: store idToAdd in database
-        MESSAGE_RECEIVERS.push(idToAdd);
+        telegramRepo.addUser(newUserName, newChatID);
 
-        await bot.sendMessage(id, `Current receivers:\n ${MESSAGE_RECEIVERS}`);
+        await bot.sendMessage(
+          id,
+          `Successfully added: ${newUserName} ${newChatID}`
+        );
 
-        console.log(MESSAGE_RECEIVERS);
+        return response.send("OK");
       }
 
-      // Return chatID back to user
-      message.startsWith("/getID") &&
-        (await bot.sendMessage(id, `Your chatID is : ${id}`));
+      // Return chatID back to user on /getID
+      if (message.startsWith("/getID")) {
+        await bot.sendMessage(id, `Your chatID is : ${id}`);
+        return response.send("OK");
+      }
 
-      // Send message to receivers
-      MESSAGE_RECEIVERS.map(async (id) => {
-        await bot.sendMessage(parseInt(id), message, {
-          parse_mode: "Markdown",
-        });
-      });
-
-      console.log(MESSAGE_RECEIVERS);
+      // Send message to telegram bot users
+      const telegramUsers = await telegramRepo.getAllUsers();
+      telegramUsers.forEach(
+        async (user: { chatID: string }) =>
+          await bot.sendMessage(user.chatID, message, {
+            parse_mode: "Markdown",
+          })
+      );
     }
   } catch (error) {
     // If there was an error sending our message then we
@@ -70,5 +71,5 @@ module.exports = async (request: NextApiRequest, response: NextApiResponse) => {
 
   // Acknowledge the message with Telegram
   // by sending a 200 HTTP status code
-  response.send("OK");
+  return response.send("OK");
 };
