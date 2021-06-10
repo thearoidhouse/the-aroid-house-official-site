@@ -52,15 +52,6 @@ module.exports = async (request: NextApiRequest, response: NextApiResponse) => {
         await bot.sendMessage(id, `Your chatID is : ${id}`);
         return response.send("OK");
       }
-
-      // Send message to telegram bot users
-      const telegramUsers = await telegramRepo.getAllUsers();
-      telegramUsers.forEach(
-        async (user: { chatID: string }) =>
-          await bot.sendMessage(user.chatID, message, {
-            parse_mode: "Markdown",
-          })
-      );
     }
   } catch (error) {
     // If there was an error sending our message then we
