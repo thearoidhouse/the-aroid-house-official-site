@@ -5,7 +5,7 @@ import "keen-slider/keen-slider.min.css";
 
 import { ItemCarouselImage } from "./ItemCarouselImage";
 
-export const ItemCarousel = () => {
+export const ItemCarousel = ({ images }) => {
   const [pause, setPause] = useState(false);
   const timer = useRef();
   const [sliderRef, slider] = useKeenSlider({
@@ -45,10 +45,18 @@ export const ItemCarousel = () => {
 
   return (
     <Box className="keen-slider" width={["100vw", "60vw"]} ref={sliderRef}>
-      {[...Array(6)].map((_, i) => {
+      {/* {[...Array(6)].map((_, i) => {
         return (
           <div key={i} className="keen-slider__slide">
             <ItemCarouselImage src={`/mosses/moss${i}.png`} />
+          </div>
+        );
+      })} */}
+
+      {images.map((image, i) => {
+        return (
+          <div key={i} className="keen-slider__slide">
+            <ItemCarouselImage src={image} />
           </div>
         );
       })}

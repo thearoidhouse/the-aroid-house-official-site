@@ -2,7 +2,7 @@ import React from "react";
 import { Image, Box, Flex, chakra } from "@chakra-ui/react";
 
 const ShopItemIndividualCard = React.forwardRef(function ShopItemIndividualCard(
-  { itemName, value, onClick, href },
+  { itemName, value, mossImage, onClick, href },
   ref
 ) {
   return (
@@ -24,7 +24,7 @@ const ShopItemIndividualCard = React.forwardRef(function ShopItemIndividualCard(
           shadow="md"
           overflow="hidden"
         >
-          <Image width="100%" height="100%" src="/image.png" />
+          <Image width="100%" height="100%" src={mossImage} />
         </chakra.span>
         <chakra.span
           //w={{ base: "180px", md: "205px" }}
@@ -38,6 +38,48 @@ const ShopItemIndividualCard = React.forwardRef(function ShopItemIndividualCard(
           transform={["translate(24%,-100%)"]}
           // transform="translate(13%,-100%)"
         >
+          <Box
+            w={{ base: 56, md: 64 }}
+            mt={-10}
+            shadow="lg"
+            rounded="lg"
+            overflow="hidden"
+          >
+            <chakra.h3
+              py={2}
+              textAlign="center"
+              fontWeight="bold"
+              textTransform="uppercase"
+              letterSpacing={1}
+            >
+              Nike Revolt
+            </chakra.h3>
+
+            <Flex
+              alignItems="center"
+              justifyContent="space-between"
+              py={2}
+              px={3}
+            >
+              <chakra.span fontWeight="bold">$129</chakra.span>
+              <chakra.button
+                bg="gray.800"
+                fontSize="xs"
+                fontWeight="bold"
+                color="white"
+                px={2}
+                py={1}
+                rounded="lg"
+                textTransform="uppercase"
+                _hover={{}}
+                _focus={{
+                  outline: "none",
+                }}
+              >
+                Add to cart
+              </chakra.button>
+            </Flex>
+          </Box>
           <chakra.h3
             py={2}
             textAlign="center"

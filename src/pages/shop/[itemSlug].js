@@ -6,6 +6,8 @@ import { ItemCarousel } from "../../components/item/ItemCarousel";
 import { ItemDetails } from "../../components/item/ItemDetails";
 
 function ItemSlug({ itemDetails }) {
+  //const mossImage = ["/moss/moss0.png", "/moss/moss1.png", "/moss/moss2.png"];
+
   return (
     <Center backgroundColor="background">
       <Flex
@@ -16,7 +18,7 @@ function ItemSlug({ itemDetails }) {
       >
         <Header />
         <Center>
-          <ItemCarousel />
+          <ItemCarousel images={itemDetails.images} />
         </Center>
         <Flex
           backgroundColor="text"

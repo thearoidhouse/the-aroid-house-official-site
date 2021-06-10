@@ -41,7 +41,11 @@ const Shop = ({ shopItems }) => {
               {shopItems.map((item, i) => {
                 return (
                   <Link href={`/shop/${item.slug}`} key={i} passHref>
-                    <ShopItemCard itemName={item.name} value={item.value} />
+                    <ShopItemCard
+                      itemName={item.name}
+                      value={item.value}
+                      mossImage={item.images[0]}
+                    />
                   </Link>
                 );
               })}
