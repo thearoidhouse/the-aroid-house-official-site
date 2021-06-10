@@ -14,7 +14,6 @@ import {
   DrawerCloseButton,
   VStack,
   Spinner,
-  SimpleGrid,
 } from "@chakra-ui/react";
 
 import { useSession } from "next-auth/client";
@@ -45,7 +44,7 @@ const Orders = () => {
   const filterBtnRef = useRef(null);
 
   const [session, loading] = useSession();
-  const { data, error } = useSWR(
+  const { data, error, mutate } = useSWR(
     session
       ? `/api/order/${orderState}?user=${session.user.name}&email=${session.user.email}`
       : null,
@@ -129,7 +128,7 @@ const Orders = () => {
             flexWrap="wrap"
           >
             {data.map((order: OrderAggregate, i: number) => (
-              <OrderItem key={i} order={order} />
+              <OrderItem key={i} order={order} mutate={mutate} />
             ))}
           </Flex>
         </Flex>

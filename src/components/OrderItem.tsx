@@ -43,9 +43,10 @@ const orderStateColors = {
 
 type Props = {
   order: OrderAggregate;
+  mutate: Function;
 };
 
-const OrderItem: FC<Props> = ({ order }) => {
+const OrderItem: FC<Props> = ({ order, mutate }) => {
   const [loading, setLoading] = useState(false);
 
   const handleOrderStateChange = async (
@@ -57,7 +58,7 @@ const OrderItem: FC<Props> = ({ order }) => {
       // @ts-ignore
       `/api/order/changeOrderState?orderID=${orderID.value}&newOrderState=${newOrderState}`
     ).then(() => {
-      mutate(`/api/order/${order.currentState}`);
+      mutate();
       setLoading(false);
     });
   };
@@ -123,6 +124,7 @@ const OrderItem: FC<Props> = ({ order }) => {
           as={Button}
           rightIcon={<ChevronDownIcon />}
           isLoading={loading}
+          backgroundColor={`${orderStateColors[order.currentState]}.300`}
         >
           Change Order State
         </MenuButton>
