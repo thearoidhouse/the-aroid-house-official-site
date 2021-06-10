@@ -6,7 +6,7 @@ import CartButton from "../buttons/CartButton";
 export const Header = () => {
   return (
     <Flex direction="row" padding="5" align="center">
-      <Link href="/">
+      <Link href="/shop">
         <Box as="button">
           <Heading fontSize="xl" color="text">
             TheAroidHouse
