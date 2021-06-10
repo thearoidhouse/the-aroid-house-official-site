@@ -1,55 +1,63 @@
-import { server } from "config.js";
-import { Center, Flex } from "@chakra-ui/react";
+import { useRouter } from "next/router";
+import useSWR from "swr";
+
+import { Center, Flex, Box, Spinner } from "@chakra-ui/react";
 
 import { Header } from "../../components/layout/Header";
 import { ItemCarousel } from "../../components/item/ItemCarousel";
 import { ItemDetails } from "../../components/item/ItemDetails";
 
-function ItemSlug({ itemDetails }) {
-  return (
-    <Center backgroundColor="background">
+const fetcher = (...args) => fetch(...args).then((res) => res.json());
+
+function ItemSlug() {
+  const { itemSlug } = useRouter().query;
+  const { data, error } = useSWR(`/api/shop/${itemSlug}`, fetcher);
+
+  if (error) return <div>failed to load</div>;
+  if (!data)
+    return (
       <Flex
-        height="100vh"
         direction="column"
-        backgroundColor="background"
-        width={["100vw", "60vw"]}
+        height="100vh"
+        justifyContent="center"
+        alignItems="center"
       >
-        <Header />
-        <Center>
-          <ItemCarousel />
-        </Center>
-        <Flex
-          backgroundColor="text"
-          height="full"
-          borderRadius="20px 20px 0px 0px"
-          direction="column"
-        >
-          <ItemDetails
-            shopItemName={itemDetails.name}
-            shopItemDescription={itemDetails.description}
-            shopItemVariants={itemDetails.variants}
-            shopItemSlug={itemDetails.slug}
-          />
-        </Flex>
+        <Spinner />
       </Flex>
-    </Center>
-  );
+    );
+
+  if (data)
+    return (
+      <Center backgroundColor="background">
+        <Flex
+          height="100vh"
+          direction="column"
+          //alignContent="center"
+          backgroundColor="background"
+          width={["100vw", "60vw"]}
+        >
+          <Header />
+          <Center>
+            <ItemCarousel />
+          </Center>
+          <Flex
+            backgroundColor="text"
+            height="full"
+            borderRadius="20px 20px 0px 0px"
+            direction="column"
+            //padding="5"
+            //marginTop="10"
+          >
+            <ItemDetails
+              shopItemName={data.name}
+              shopItemDescription={data.description}
+              shopItemVariants={data.variants}
+              shopItemSlug={data.slug}
+            />
+          </Flex>
+        </Flex>
+      </Center>
+    );
 }
 
 export default ItemSlug;
-
-export async function getStaticPaths() {
-  const response = await fetch(`${server}/api/shop/getShopItemSlugs`);
-  const slugs = await response.json();
-
-  const paths = slugs.map((slug) => ({ params: { itemSlug: slug } }));
-
-  return { paths, fallback: false };
-}
-
-export async function getStaticProps({ params }) {
-  const response = await fetch(`${server}/api/shop/${params.itemSlug}`);
-  const itemDetails = await response.json();
-
-  return { props: { itemDetails } };
-}
