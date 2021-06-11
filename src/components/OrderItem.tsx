@@ -1,5 +1,4 @@
 import { FC, useState } from "react";
-import { mutate } from "swr";
 import {
   Button,
   Box,
