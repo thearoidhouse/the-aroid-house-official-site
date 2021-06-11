@@ -61,6 +61,11 @@ export async function getStaticProps() {
   });
 
   return {
-    props: { shopItems },
+    props: {
+      shopItems,
+    },
+    // incrementally regenerate every 2 hours
+    // seconds * minutes * hours
+    revalidate: 60 * 60 * 2,
   };
 }
