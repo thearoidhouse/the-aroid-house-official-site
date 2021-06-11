@@ -6,8 +6,6 @@ export default class Document extends NextDocument {
     return (
       <Html>
         <Head>
-          <title>TheAroidHouse</title>
-          <link rel="icon" href="/favicon.ico" />
           <meta name="title" content="TheAroidHouse" />
           <meta name="description" content="Trying to make gardening simple." />
 
