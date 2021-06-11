@@ -34,7 +34,7 @@ const Index = () => (
     </Text>
 
     <Link href="/shop">
-      <BigButton marginTop="10" name={"Shop"} />
+      <BigButton marginTop="10" name="Shop now" />
     </Link>
   </Flex>
 );
