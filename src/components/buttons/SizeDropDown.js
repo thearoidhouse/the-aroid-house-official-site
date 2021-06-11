@@ -2,7 +2,7 @@ import { FormControl, Select } from "@chakra-ui/react";
 
 export const SizeDropDown = (props) => {
   return (
-    <FormControl id="variant" borderRadius="5" maxW="180px">
+    <FormControl id="variant" borderRadius="5" width="auto">
       <Select
         placeholder="Select size"
         backgroundColor="buttonBackground"

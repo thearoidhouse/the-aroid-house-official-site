@@ -14,11 +14,12 @@ export const AddMinus = (props) => {
   const input = getInputProps({ isReadOnly: true });
 
   return (
-    <HStack maxW="180px" borderRadius="5">
+    <HStack maxWidth="150px" borderRadius="5">
       <Button
         backgroundColor="buttonBackground"
         color="background"
         fontWeight="bold"
+        _hover={{ backgroundColor: "buttonBackgroundHover" }}
         {...dec}
       >
         -
@@ -30,6 +31,7 @@ export const AddMinus = (props) => {
         backgroundColor="buttonBackground"
         color="background"
         fontWeight="bold"
+        _hover={{ backgroundColor: "buttonBackgroundHover" }}
         {...inc}
       >
         +
