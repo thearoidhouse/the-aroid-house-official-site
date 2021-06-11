@@ -68,6 +68,14 @@ export async function getStaticProps({ params }) {
     `https://api.cosmicjs.com/v2/buckets/the-aroid-house-offficial-site-production/objects?pretty=true&read_key=ah5230JxP2Sp8G6QyEhWrxXdsdwHQPP8rPTPMY5Rfq3RBHnPP7&query=%7B%22slug%22%3A%22${params.itemSlug}%22%7D&props=slug,metadata`
   );
   const data = await response.json();
+
+  if (data.objects == null) {
+    return {
+      redirect: {
+        destination: "/404",
+      },
+    };
+  }
   const metadata = data.objects[0].metadata;
   const itemDetails = {
     images: metadata.images.map((imageObj) => imageObj.image.imgix_url),
