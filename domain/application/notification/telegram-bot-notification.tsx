@@ -41,5 +41,5 @@ export const telegramBotNotification = async ({
     });
   });
 
-  return true;
+  return Promise.resolve("success");
 };

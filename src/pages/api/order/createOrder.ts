@@ -12,7 +12,7 @@ module.exports = async (request: NextApiRequest, response: NextApiResponse) => {
   let { body } = request;
   const orderAggregate = OrderAggregate.create(body, body._id).getResult();
 
-  const result = newOrder({ orderRepo, orderAggregate });
+  const result = await newOrder({ orderRepo, orderAggregate });
 
   return response.status(200).json(result);
 };

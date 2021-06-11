@@ -1,6 +1,6 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
+import { useRouter } from "next/router";
 import { Box, chakra, Divider, Flex, Spacer, Text } from "@chakra-ui/react";
-import Link from "next/link";
 
 import Item from "./Item";
 import { PaymentContext } from "../../context/PaymentContext";
@@ -24,7 +24,10 @@ const Payment = (props) => {
   const [paymentItem, setPaymentItem] = useContext(PaymentContext);
   const [items, setItems] = useContext(CartContext);
 
-  const handleOrderSubmit = () => {
+  const [loading, setLoading] = useState(false);
+  const router = useRouter();
+  const handleOrderSubmit = async () => {
+    setLoading(true);
     const firstName = paymentItem[1].firstName;
     const lastName = paymentItem[1].lastName;
     const phoneNumber = paymentItem[1].phone;
@@ -61,7 +64,7 @@ const Payment = (props) => {
       customer,
     }).getResult();
 
-    fetch("/api/order/createOrder", {
+    await fetch("/api/order/createOrder", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -70,6 +73,8 @@ const Payment = (props) => {
     });
 
     setItems([]);
+    setLoading(false);
+    router.replace("/thankyou");
   };
 
   const handleRemove = () => {
@@ -180,9 +185,11 @@ const Payment = (props) => {
             handleRemove();
           }}
         />
-        <Link href="/thankyou">
-          <SmallButton name={"Finish"} onClick={() => handleOrderSubmit()} />
-        </Link>
+        <SmallButton
+          isLoading={loading}
+          name={"Finish"}
+          onClick={handleOrderSubmit}
+        />
       </Flex>
     </Flex>
   );
