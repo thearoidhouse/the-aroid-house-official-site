@@ -49,7 +49,7 @@ export const ItemDetails = ({
         title: "Item added",
         description: "Item successfully added to cart",
         status: "success",
-        duration: 1500,
+        duration: 2500,
         isClosable: true,
         position: "top",
       });
@@ -58,7 +58,7 @@ export const ItemDetails = ({
         title: "No vairant",
         description: "Please select a variant",
         status: "warning",
-        duration: 1500,
+        duration: 2500,
         isClosable: true,
         position: "top",
       });

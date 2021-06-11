@@ -40,7 +40,7 @@ function cart() {
       title: "Item deleted",
       description: "Item successfully deleted from cart",
       status: "warning",
-      duration: 1500,
+      duration: 2500,
       isClosable: true,
       position: "top",
     });
@@ -53,7 +53,7 @@ function cart() {
         title: "Cart is empty",
         description: "No item in cart",
         status: "warning",
-        duration: 1500,
+        duration: 2500,
         isClosable: true,
         position: "top",
       });
