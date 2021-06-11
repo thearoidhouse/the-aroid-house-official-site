@@ -22,7 +22,7 @@ function MyApp({ Component, pageProps }) {
             >
               <Head>
                 <title>TheAroidHouse</title>
-                <link rel="icon" href="/favicon.ico" />
+                <link rel="icon" href="favicon.ico" />
               </Head>
               <Component {...pageProps} />
             </ColorModeProvider>
