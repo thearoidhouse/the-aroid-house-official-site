@@ -1,4 +1,4 @@
-import { Flex, chakra, Center } from "@chakra-ui/react";
+import { Flex, Text, Center } from "@chakra-ui/react";
 
 import Link from "next/link";
 import { HeaderCheckout } from "../components/layout/HeaderCheckout";
@@ -24,20 +24,16 @@ function thankyou() {
           padding="5"
           align="center"
         >
-          <chakra.h3
-            marginTop="4"
-            fontSize="xl"
-            color="background"
-            align="center"
-          >
-            Thank you for shopping with us. May your plant grow well.
-          </chakra.h3>
+          <Text marginTop="4" fontSize="xl" color="background" align="center">
+            Thank you for supporting TheAroidHouse! Marcus will be contacting
+            you shortly.
+          </Text>
 
           <ThankyouAnimation />
 
-          <chakra.h3 marginTop="4" fontSize="xl" color="background">
-            Check your email for your invoice.
-          </chakra.h3>
+          <Text marginTop="4" fontSize="xl" color="background">
+            Kindly check your email for your invoice.
+          </Text>
 
           <Link href="/shop">
             <BigButton marginTop="10" name={"Back to shop"} />
