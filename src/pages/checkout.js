@@ -22,7 +22,7 @@ function checkout() {
 
   const [paymentItem, setPaymentItem] = useContext(PaymentContext);
 
-  const [firstName, setFirstName] = useState("");
+  //const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [address, setAddress] = useState("");
@@ -46,16 +46,17 @@ function checkout() {
 
   const addPaymentItem = (e) => {
     // setPaymentItem({ firstName, lastName, email, address, phone });
-    if (firstName === "") {
-      toast({
-        title: "First name empty",
-        description: "Please fill in your first name",
-        status: "warning",
-        duration: 2500,
-        isClosable: true,
-        position: "top",
-      });
-    } else if (lastName === "") {
+    // if (firstName === "") {
+    //   toast({
+    //     title: "First name empty",
+    //     description: "Please fill in your first name",
+    //     status: "warning",
+    //     duration: 2500,
+    //     isClosable: true,
+    //     position: "top",
+    //   });
+    // } else
+    if (lastName === "") {
       toast({
         title: "Last name empty",
         description: "Please fill in your last name",
@@ -105,7 +106,7 @@ function checkout() {
       } else {
         setPaymentItem((prevItems) => [
           ...prevItems,
-          { firstName, lastName, email, address, phone },
+          { lastName, email, address, phone },
         ]);
       }
     } else {
@@ -119,9 +120,6 @@ function checkout() {
         position: "top",
       });
     }
-
-    console.log(paymentItem);
-    console.log(firstName, lastName, email, address, phone);
   };
 
   return (
@@ -167,7 +165,7 @@ function checkout() {
                   setTabIndex={setTabIndex}
                   paymentItem={paymentItem}
                   addPaymentItem={addPaymentItem}
-                  firstName={firstName}
+                  //firstName={firstName}
                   lastName={lastName}
                   email={email}
                   address={address}

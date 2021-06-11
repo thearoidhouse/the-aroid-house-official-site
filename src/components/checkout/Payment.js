@@ -91,7 +91,8 @@ const Payment = (props) => {
   };
 
   if (paymentItem.length == 2) {
-    name = paymentItem[1].firstName + " " + paymentItem[1].lastName;
+    //name = paymentItem[1].firstName + " " + paymentItem[1].lastName;
+    name = paymentItem[1].lastName;
     email = paymentItem[1].email;
     address = paymentItem[1].address;
     number = paymentItem[1].phone;

@@ -20,7 +20,7 @@ const Details = (props) => {
       <chakra.h3 marginTop="2" fontSize="xl" color="background">
         Contact details
       </chakra.h3>
-      <FormControl marginTop="2" id="first-name" isRequired>
+      {/* <FormControl marginTop="2" id="first-name" isRequired>
         <FormLabel>First name</FormLabel>
         <Input
           backgroundColor="background"
@@ -29,12 +29,12 @@ const Details = (props) => {
           onChange={(e) => props.updateFirstName(e.target.value)}
           color="text"
         />
-      </FormControl>
+      </FormControl> */}
       <FormControl marginTop="2" id="last-name" isRequired>
-        <FormLabel>Last name</FormLabel>
+        <FormLabel>Full name</FormLabel>
         <Input
           backgroundColor="background"
-          placeholder="Last name"
+          placeholder="name"
           value={props.LastName}
           onChange={(e) => props.updateLastName(e.target.value)}
           color="text"
