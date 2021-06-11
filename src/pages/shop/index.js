@@ -1,10 +1,11 @@
 import Link from "next/link";
-import { server } from "config.js";
-
 import { Box, Center, Flex } from "@chakra-ui/react";
+import { motion } from "framer-motion";
 
 import { Header } from "../../components/layout/Header";
 import ShopItemCard from "../../components/cards/ShopItemCard";
+
+const MotionBox = motion(Box);
 
 const Shop = ({ shopItems }) => {
   return (
@@ -20,7 +21,12 @@ const Shop = ({ shopItems }) => {
             >
               {shopItems.map((item, i) => {
                 return (
-                  <Box key={i} marginBottom="4" marginX="4">
+                  <MotionBox
+                    key={i}
+                    marginBottom="4"
+                    marginX="4"
+                    whileHover={{ scale: 1.05 }}
+                  >
                     <Link href={`/shop/${item.slug}`} passHref>
                       <ShopItemCard
                         itemName={item.name}
@@ -28,7 +34,7 @@ const Shop = ({ shopItems }) => {
                         mossImage={item.images[0]}
                       />
                     </Link>
-                  </Box>
+                  </MotionBox>
                 );
               })}
             </Flex>
