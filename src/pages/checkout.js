@@ -51,7 +51,7 @@ function checkout() {
         title: "First name empty",
         description: "Please fill in your first name",
         status: "warning",
-        duration: 1500,
+        duration: 2500,
         isClosable: true,
         position: "top",
       });
@@ -60,7 +60,7 @@ function checkout() {
         title: "Last name empty",
         description: "Please fill in your last name",
         status: "warning",
-        duration: 1500,
+        duration: 2500,
         isClosable: true,
         position: "top",
       });
@@ -69,7 +69,7 @@ function checkout() {
         title: "Email empty",
         description: "Please fill in your email",
         status: "warning",
-        duration: 1500,
+        duration: 2500,
         isClosable: true,
         position: "top",
       });
@@ -78,7 +78,7 @@ function checkout() {
         title: "Address empty",
         description: "Please fill in your address",
         status: "warning",
-        duration: 1500,
+        duration: 2500,
         isClosable: true,
         position: "top",
       });
@@ -87,15 +87,37 @@ function checkout() {
         title: "Phone empty",
         description: "Please fill in your phone number",
         status: "warning",
-        duration: 1500,
+        duration: 2500,
         isClosable: true,
         position: "top",
       });
+    } else if (phone !== "") {
+      const validPhoneNumber = /[8|9][0-9]{7}$/;
+      if (!phone.match(validPhoneNumber)) {
+        toast({
+          title: "Phone empty",
+          description: "Phone number must start with 9 or 8 and have 8 digits",
+          status: "warning",
+          duration: 2500,
+          isClosable: true,
+          position: "top",
+        });
+      } else {
+        setPaymentItem((prevItems) => [
+          ...prevItems,
+          { firstName, lastName, email, address, phone },
+        ]);
+      }
     } else {
-      setPaymentItem((prevItems) => [
-        ...prevItems,
-        { firstName, lastName, email, address, phone },
-      ]);
+      toast({
+        title: "Something went wrong",
+        description:
+          "Something went wrong please message marcus on instagram instead",
+        status: "warning",
+        duration: 2500,
+        isClosable: true,
+        position: "top",
+      });
     }
 
     console.log(paymentItem);
