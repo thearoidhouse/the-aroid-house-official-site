@@ -10,7 +10,10 @@ import { SmallButton } from "../buttons/SmallButton";
 import { Customer } from "domain/models/entities/Customer";
 import { CartItem } from "domain/models/entities/CartItem";
 import { Cart } from "domain/models/entities/Cart";
-import { OrderAggregate } from "domain/models/aggregates/OrderAggregate";
+import {
+  OrderState,
+  OrderAggregate,
+} from "domain/models/aggregates/OrderAggregate";
 
 const Payment = (props) => {
   var name = "";
@@ -63,6 +66,8 @@ const Payment = (props) => {
       isSelfCollect,
       customer,
     }).getResult();
+
+    order.changeState(OrderState.PAYMENT_UNCONFIRMED);
 
     await fetch("/api/order/createOrder", {
       method: "POST",

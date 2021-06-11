@@ -20,8 +20,9 @@ import {
   FaUserAlt,
   FaHashtag,
   FaShuttleVan,
-  FaLocationArrow,
+  FaDirections,
   FaPhoneAlt,
+  FaClock,
 } from "react-icons/fa";
 
 import {
@@ -92,6 +93,12 @@ const OrderItem: FC<Props> = ({ order, mutate }) => {
 
       <Box padding="4">
         <HStack>
+          <Icon as={FaClock} />
+          <Text>
+            {new Date(order.orderHistory[0].dateString).toDateString()}
+          </Text>
+        </HStack>
+        <HStack>
           <Icon as={FaShuttleVan} />
           {order.isSelfCollect ? (
             <Text>Self-collect</Text>
@@ -114,7 +121,7 @@ const OrderItem: FC<Props> = ({ order, mutate }) => {
           <Text>{order.customer.phoneNumber}</Text>
         </HStack>
         <HStack>
-          <Icon as={FaLocationArrow} />
+          <Icon as={FaDirections} />
           <Text>{order.customer.address}</Text>
         </HStack>
       </Box>
