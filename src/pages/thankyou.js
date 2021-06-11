@@ -31,7 +31,7 @@ function thankyou() {
 
           <ThankyouAnimation />
 
-          <Text marginTop="4" fontSize="xl" color="background">
+          <Text marginTop="4" fontSize="xl" color="background" align="center">
             Kindly check your email for your invoice.
           </Text>
 
