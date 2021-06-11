@@ -9,7 +9,6 @@ interface CustomerProps extends BaseDomainEntity {
 }
 
 export class Customer extends Entity<CustomerProps> {
-  public customerID: string;
   public firstName: string;
   public lastName: string;
   public phoneNumber: number;
@@ -23,7 +22,6 @@ export class Customer extends Entity<CustomerProps> {
     this.phoneNumber = props.phoneNumber;
     this.email = props.email;
     this.address = props.address;
-    this.customerID = this.phoneNumber.toString() + this.firstName;
   }
 
   public static create(
