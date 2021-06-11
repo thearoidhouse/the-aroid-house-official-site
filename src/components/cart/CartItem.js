@@ -19,7 +19,12 @@ const CartItem = (props) => {
             </chakra.h3>
           </HStack>
 
-          <Flex direction="row" paddingLeft="10" width="60vw" paddingTop="2">
+          <Flex
+            direction="row"
+            paddingLeft="10"
+            width={["60vw", "40vw"]}
+            paddingTop="2"
+          >
             <chakra.h3 fontSize="md" color="background">
               Quantity
             </chakra.h3>
@@ -28,7 +33,12 @@ const CartItem = (props) => {
               {props.item.quantity}
             </chakra.h3>
           </Flex>
-          <Flex direction="row" paddingLeft="10" width="60vw" paddingTop="2">
+          <Flex
+            direction="row"
+            paddingLeft="10"
+            width={["60vw", "40vw"]}
+            paddingTop="2"
+          >
             <chakra.h3 fontSize="md" color="background">
               Size
             </chakra.h3>
