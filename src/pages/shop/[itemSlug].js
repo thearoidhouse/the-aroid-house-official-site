@@ -52,7 +52,15 @@ export async function getStaticPaths() {
 
   const paths = slugs.map((slug) => ({ params: { itemSlug: slug } }));
 
-  return { paths, fallback: false };
+  {
+    /*
+    fallback: blocking (preferred)
+    When a request is made to a page that hasn’t been generated, 
+    Next.js will server-render the page on the first request.
+    Future requests will serve the static file from the cache.
+  */
+  }
+  return { paths, fallback: "blocking" };
 }
 
 export async function getStaticProps({ params }) {
