@@ -95,7 +95,7 @@ export const ItemDetails = ({
         {shopItemDescription}
       </Text>
       <Text color="background" fontSize="xl" paddingTop="5">
-        Variants:
+        Options:
       </Text>
       <Flex direction="column" width="full" justify="space-between">
         {shopItemVariants.map((variant, i) => {
@@ -127,7 +127,7 @@ export const ItemDetails = ({
         </Flex>
         <Flex direction="row" align="center" paddingTop="3">
           <Text color="background" fontSize="lg">
-            Variant
+            Options:
           </Text>
           <Spacer />
           <SizeDropDown variants={shopItemVariants} onChange={updateVariant} />

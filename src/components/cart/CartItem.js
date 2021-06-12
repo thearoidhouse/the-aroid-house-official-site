@@ -40,7 +40,7 @@ const CartItem = (props) => {
             paddingTop="2"
           >
             <chakra.h3 fontSize="md" color="background">
-              Size
+              Option
             </chakra.h3>
             <Spacer />
             <chakra.h3 fontSize="md" color="background">

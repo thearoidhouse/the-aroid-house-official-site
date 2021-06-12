@@ -4,7 +4,7 @@ export const SizeDropDown = (props) => {
   return (
     <FormControl id="variant" borderRadius="5" width="auto">
       <Select
-        placeholder="Select size"
+        placeholder="Select option"
         backgroundColor="buttonBackground"
         color="text"
         fontWeight="bold"
