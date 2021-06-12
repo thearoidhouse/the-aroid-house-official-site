@@ -1,4 +1,4 @@
-import { IOrderRepo } from "src/domain/models/infrastructure/IOrderRepository";
+import { IOrderRepo } from "domain/models/infrastructure/IOrderRepository";
 
 interface IGetOneOrder {
   orderRepo: IOrderRepo;

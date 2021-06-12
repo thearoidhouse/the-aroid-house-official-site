@@ -1,4 +1,4 @@
-import { ShopAggregate } from "src/domain/models/aggregates/ShopAggregate";
+import { ShopAggregate } from "domain/models/aggregates/ShopAggregate";
 
 export interface IShopRepo {
   // write

@@ -1,7 +1,7 @@
-import { OrderAggregate } from "src/domain/models/aggregates/OrderAggregate";
-import { IOrderRepo } from "src/domain/models/infrastructure/IOrderRepository";
-import { sendGridEmailNotification } from "../notification/sendgrid-email-notification";
-import { telegramBotNotification } from "../notification/telegram-bot-notification";
+import { OrderAggregate } from "domain/models/aggregates/OrderAggregate";
+import { IOrderRepo } from "domain/models/infrastructure/IOrderRepository";
+import { sendGridEmailNotification } from "domain/application/notification/sendgrid-email-notification";
+import { telegramBotNotification } from "domain/application/notification/telegram-bot-notification";
 
 interface INewOrder {
   orderRepo: IOrderRepo;

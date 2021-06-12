@@ -1,4 +1,4 @@
-import { IShopRepo } from "src/domain/models/infrastructure/IShopRepository";
+import { IShopRepo } from "domain/models/infrastructure/IShopRepository";
 
 interface IGetOneShopItem {
   shopRepo: IShopRepo;

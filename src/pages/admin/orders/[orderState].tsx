@@ -17,7 +17,7 @@ import Wave from "src/components/Wave";
 import LeftDrawer from "src/components/admin/LeftDrawer";
 import OrderItem from "src/components/OrderItem";
 
-import { OrderAggregate } from "src/domain/models/aggregates/OrderAggregate";
+import { OrderAggregate } from "domain/models/aggregates/OrderAggregate";
 
 const orderStateColors = {
   PAYMENT_UNCONFIRMED: "blue",

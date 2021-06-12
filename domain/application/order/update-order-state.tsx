@@ -1,8 +1,8 @@
 import {
   OrderState,
   OrderAggregate,
-} from "src/domain/models/aggregates/OrderAggregate";
-import { IOrderRepo } from "src/domain/models/infrastructure/IOrderRepository";
+} from "domain/models/aggregates/OrderAggregate";
+import { IOrderRepo } from "domain/models/infrastructure/IOrderRepository";
 import { UniqueEntityID } from "types-ddd";
 
 interface IUpdateOrder {

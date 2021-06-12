@@ -1,8 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 
-import { MongoShopRepository } from "src/domain/infrastructure/MongoShopRepository";
+import { MongoShopRepository } from "domain/infrastructure/MongoShopRepository";
 import { connectToDatabase } from "src/libs/mongodb";
-import { listShopItemSlugs } from "src/domain/application/shop/list-shop-item-slugs";
+import { listShopItemSlugs } from "domain/application/shop/list-shop-item-slugs";
 
 module.exports = async (_: NextApiRequest, response: NextApiResponse) => {
   const { db } = await connectToDatabase();

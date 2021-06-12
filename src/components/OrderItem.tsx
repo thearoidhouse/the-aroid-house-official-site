@@ -28,8 +28,8 @@ import {
 import {
   OrderAggregate,
   OrderState,
-} from "src/domain/models/aggregates/OrderAggregate";
-import { CartItem } from "src/domain/models/entities/CartItem";
+} from "domain/models/aggregates/OrderAggregate";
+import { CartItem } from "domain/models/entities/CartItem";
 import { UniqueEntityID } from "types-ddd/dist/src";
 
 const orderStateColors = {
