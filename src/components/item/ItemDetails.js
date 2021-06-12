@@ -55,8 +55,8 @@ export const ItemDetails = ({
       });
     } else {
       toast({
-        title: "No vairant",
-        description: "Please select a variant",
+        title: "No option",
+        description: "Please select an option",
         status: "warning",
         duration: 2500,
         isClosable: true,
