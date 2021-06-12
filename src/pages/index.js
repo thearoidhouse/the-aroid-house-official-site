@@ -8,7 +8,7 @@ import Landing from "../components/Landing";
 
 const Index = () => (
   <Flex
-    height="100vh"
+    height="110vh"
     direction="column"
     alignItems="center"
     backgroundColor="background"
@@ -36,6 +36,14 @@ const Index = () => (
     <Link href="/shop">
       <BigButton marginTop="10" name="Shop now" />
     </Link>
+
+    <Link2
+      href="https://www.instagram.com/stories/highlights/17918093002619184/"
+      isExternal
+      _hover=""
+    >
+      <BigButton marginTop="5" name="Testimonials" />
+    </Link2>
   </Flex>
 );
 
