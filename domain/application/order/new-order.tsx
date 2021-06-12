@@ -13,7 +13,7 @@ export const newOrder = async ({ orderRepo, orderAggregate }: INewOrder) => {
   await orderRepo.save(orderAggregate);
 
   // send order confirmation email
-  sendGridEmailNotification({ orderAggregate });
+  await sendGridEmailNotification({ orderAggregate });
 
   return telegramBotNotification({ orderAggregate });
 };
