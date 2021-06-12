@@ -10,7 +10,7 @@ interface INewOrder {
 
 export const newOrder = async ({ orderRepo, orderAggregate }: INewOrder) => {
   // no matter what save order first
-  await orderRepo.save(orderAggregate);
+  orderRepo.save(orderAggregate);
 
   // send order confirmation email
   await sendGridEmailNotification({ orderAggregate });
