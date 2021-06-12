@@ -7,13 +7,13 @@ import { PaymentContext } from "../../context/PaymentContext";
 import { CartContext } from "../../context/CartContext";
 import { SmallButton } from "../buttons/SmallButton";
 
-import { Customer } from "src/domain/models/entities/Customer";
-import { CartItem } from "src/domain/models/entities/CartItem";
-import { Cart } from "src/domain/models/entities/Cart";
+import { Customer } from "domain/models/entities/Customer";
+import { CartItem } from "domain/models/entities/CartItem";
+import { Cart } from "domain/models/entities/Cart";
 import {
   OrderState,
   OrderAggregate,
-} from "src/domain/models/aggregates/OrderAggregate";
+} from "domain/models/aggregates/OrderAggregate";
 
 const Payment = (props) => {
   var name = "";

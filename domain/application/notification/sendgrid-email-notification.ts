@@ -38,6 +38,4 @@ export const sendGridEmailNotification = async ({
       }
     }
   );
-
-  return Promise.resolve("success");
 };

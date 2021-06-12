@@ -40,6 +40,4 @@ export const telegramBotNotification = async ({
       body: JSON.stringify(message),
     });
   });
-
-  return Promise.resolve("success");
 };
