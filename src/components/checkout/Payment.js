@@ -36,6 +36,7 @@ const Payment = (props) => {
     const phoneNumber = paymentItem[1].phone;
     const email = paymentItem[1].email;
     const address = paymentItem[1].address;
+    const isSelfCollect = paymentItem[0].deliveryCost == 0;
 
     const customer = Customer.create({
       firstName,
@@ -45,9 +46,7 @@ const Payment = (props) => {
       address,
     }).getResult();
 
-    const isSelfCollect = paymentItem[0].deliveryCost == 0;
-
-    // calculate cart items
+    // populate cart to add into order
     let cartItems = [];
     paymentItem[0].items.map((item) => {
       cartItems.push(
@@ -66,7 +65,6 @@ const Payment = (props) => {
       isSelfCollect,
       customer,
     }).getResult();
-
     order.changeState(OrderState.PAYMENT_UNCONFIRMED);
 
     await fetch("/api/order/createOrder", {
