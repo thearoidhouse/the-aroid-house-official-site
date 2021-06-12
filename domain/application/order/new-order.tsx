@@ -1,7 +1,7 @@
 import { OrderAggregate } from "domain/models/aggregates/OrderAggregate";
 import { IOrderRepo } from "domain/models/infrastructure/IOrderRepository";
-import { sendGridEmailNotification } from "../notification/sendgrid-email-notification";
-import { telegramBotNotification } from "../notification/telegram-bot-notification";
+import { sendGridEmailNotification } from "../../../src/pages/api/sendGridEmailNotification";
+import { telegramBotNotification } from "../../../src/pages/api/telegramBotNotification";
 
 interface INewOrder {
   orderRepo: IOrderRepo;
@@ -9,20 +9,20 @@ interface INewOrder {
 }
 
 export const newOrder = async ({ orderRepo, orderAggregate }: INewOrder) => {
-  // no matter what save order first
-  // await orderRepo.save(orderAggregate);
-
-  // // send order confirmation email
-  // await sendGridEmailNotification({ orderAggregate });
-
-  // return telegramBotNotification({ orderAggregate });
-
-  await orderRepo
-    .save(orderAggregate)
-    .then((hi) => sendGridEmailNotification({ orderAggregate }))
-    .then((bye) => telegramBotNotification({ orderAggregate }));
+  //no matter what save order first
+  await orderRepo.save(orderAggregate);
 
   // send order confirmation email
+  await sendGridEmailNotification({ orderAggregate });
 
-  return;
+  return telegramBotNotification({ orderAggregate });
+
+  // await orderRepo
+  //   .save(orderAggregate)
+  //   .then((hi) => sendGridEmailNotification({ orderAggregate }))
+  //   .then((bye) => telegramBotNotification({ orderAggregate }));
+
+  // // send order confirmation email
+
+  // return;
 };
