@@ -38,11 +38,11 @@ const Index = () => (
     </Link>
 
     <Link2
-      href="https://www.instagram.com/stories/highlights/17918093002619184/"
+      href="https://www.instagram.com/stories/highlights/17915975803718459/"
       isExternal
       _hover=""
     >
-      <BigButton marginTop="5" name="Testimonials" />
+      <BigButton marginTop="5" name="Reviews" />
     </Link2>
   </Flex>
 );
