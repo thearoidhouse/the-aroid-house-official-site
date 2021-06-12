@@ -3,8 +3,8 @@ import { OrderAggregate, OrderState } from "../aggregates/OrderAggregate";
 
 export interface IOrderRepo {
   // write
-  save(order: OrderAggregate): Promise<boolean>;
-  update(order: OrderAggregate): Promise<boolean>;
+  save(order: OrderAggregate): void;
+  update(order: OrderAggregate): void;
   delete(order: OrderAggregate): Promise<boolean>;
 
   // read

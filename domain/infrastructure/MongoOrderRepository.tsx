@@ -12,14 +12,13 @@ export class MongoOrderRepository implements IOrderRepo {
     this.db = db;
   }
 
-  save(order: OrderAggregate): Promise<boolean> {
-    return this.db.collection("order").insertOne(order);
+  async save(order: OrderAggregate) {
+    this.db.collection("order").insertOne(order);
   }
 
-  async update(order: OrderAggregate): Promise<boolean> {
+  async update(order: OrderAggregate) {
     await this.db.collection("order").deleteOne({ orderID: order.orderID });
-
-    return this.save(order);
+    await this.save(order);
   }
 
   delete(order: OrderAggregate): Promise<boolean> {
