@@ -1,5 +1,6 @@
 import { OrderAggregate } from "domain/models/aggregates/OrderAggregate";
 import { IOrderRepo } from "domain/models/infrastructure/IOrderRepository";
+import { sendGridEmailNotification } from "../notification/sendgrid-email-notification";
 import { telegramBotNotification } from "../notification/telegram-bot-notification";
 
 interface INewOrder {
@@ -12,6 +13,7 @@ export const newOrder = async ({ orderRepo, orderAggregate }: INewOrder) => {
   await orderRepo.save(orderAggregate);
 
   // send order confirmation email
+  sendGridEmailNotification({ orderAggregate });
 
   return telegramBotNotification({ orderAggregate });
 };
