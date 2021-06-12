@@ -1,5 +1,5 @@
 import { AggregateRoot, Result, UniqueEntityID } from "types-ddd";
-import { ShopItem } from "domain/models/entities/ShopItem";
+import { ShopItem } from "src/domain/models/entities/ShopItem";
 
 export interface ShopAggregateProp {
   name: string;

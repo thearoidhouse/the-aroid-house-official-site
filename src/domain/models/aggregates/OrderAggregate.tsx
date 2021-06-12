@@ -1,6 +1,6 @@
 import { AggregateRoot, Result, UniqueEntityID } from "types-ddd";
-import { Cart } from "domain/models/entities/Cart";
-import { Customer } from "domain/models/entities/Customer";
+import { Cart } from "src/domain/models/entities/Cart";
+import { Customer } from "src/domain/models/entities/Customer";
 
 export enum OrderState {
   PAYMENT_UNCONFIRMED = "PAYMENT_UNCONFIRMED",

@@ -1,9 +1,9 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 
-import { MongoOrderRepository } from "domain/infrastructure/MongoOrderRepository";
+import { MongoOrderRepository } from "src/domain/infrastructure/MongoOrderRepository";
 import { connectToDatabase } from "src/libs/mongodb";
-import { newOrder } from "domain/application/order/new-order";
-import { OrderAggregate } from "domain/models/aggregates/OrderAggregate";
+import { newOrder } from "src/domain/application/order/new-order";
+import { OrderAggregate } from "src/domain/models/aggregates/OrderAggregate";
 
 module.exports = async (request: NextApiRequest, response: NextApiResponse) => {
   const { db } = await connectToDatabase();

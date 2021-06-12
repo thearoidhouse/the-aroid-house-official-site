@@ -1,5 +1,5 @@
 import { Entity, BaseDomainEntity, Result, UniqueEntityID } from "types-ddd";
-import { CartItem } from "domain/models/entities/CartItem";
+import { CartItem } from "src/domain/models/entities/CartItem";
 
 interface CartProps extends BaseDomainEntity {
   cartItems: CartItem[];

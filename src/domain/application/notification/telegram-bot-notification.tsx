@@ -1,7 +1,7 @@
-import { MongoTelegramRepo } from "domain/infrastructure/MongoTelegramRepository";
+import { MongoTelegramRepo } from "src/domain/infrastructure/MongoTelegramRepository";
 import { connectToDatabase } from "src/libs/mongodb";
-import { OrderAggregate } from "domain/models/aggregates/OrderAggregate";
-import { CartItem } from "domain/models/entities/CartItem";
+import { OrderAggregate } from "src/domain/models/aggregates/OrderAggregate";
+import { CartItem } from "src/domain/models/entities/CartItem";
 
 interface ITelegramBotNotification {
   orderAggregate: OrderAggregate;

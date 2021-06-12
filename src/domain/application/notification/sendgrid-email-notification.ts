@@ -1,4 +1,4 @@
-import { OrderAggregate } from "domain/models/aggregates/OrderAggregate";
+import { OrderAggregate } from "src/domain/models/aggregates/OrderAggregate";
 
 interface ISendGridEmailNotification {
   orderAggregate: OrderAggregate;

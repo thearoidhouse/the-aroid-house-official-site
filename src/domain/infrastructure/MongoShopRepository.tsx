@@ -1,5 +1,5 @@
-import { ShopAggregate } from "domain/models/aggregates/ShopAggregate";
-import { IShopRepo } from "domain/models/infrastructure/IShopRepository";
+import { ShopAggregate } from "src/domain/models/aggregates/ShopAggregate";
+import { IShopRepo } from "src/domain/models/infrastructure/IShopRepository";
 
 export class MongoShopRepository implements IShopRepo {
   public readonly db: any;

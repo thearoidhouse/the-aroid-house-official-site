@@ -7,7 +7,7 @@
 }
 import type { NextApiRequest, NextApiResponse } from "next";
 
-import { MongoTelegramRepo } from "domain/infrastructure/MongoTelegramRepository";
+import { MongoTelegramRepo } from "src/domain/infrastructure/MongoTelegramRepository";
 import { connectToDatabase } from "src/libs/mongodb";
 
 import TelegramBot from "node-telegram-bot-api";

@@ -1,10 +1,10 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 
-import { MongoShopRepository } from "domain/infrastructure/MongoShopRepository";
+import { MongoShopRepository } from "src/domain/infrastructure/MongoShopRepository";
 import { connectToDatabase } from "src/libs/mongodb";
-import { ShopAggregate } from "domain/models/aggregates/ShopAggregate";
-import { ShopItem } from "domain/models/entities/ShopItem";
-import { addShop } from "domain/application/shop/add-shop";
+import { ShopAggregate } from "src/domain/models/aggregates/ShopAggregate";
+import { ShopItem } from "src/domain/models/entities/ShopItem";
+import { addShop } from "src/domain/application/shop/add-shop";
 
 module.exports = async (request: NextApiRequest, response: NextApiResponse) => {
   const { db } = await connectToDatabase();
@@ -26,8 +26,7 @@ module.exports = async (request: NextApiRequest, response: NextApiResponse) => {
     shopItems: [shopItem],
   }).getResult();
 
-
-  const result = await addShop({shopRepo, shop: newShop})
+  const result = await addShop({ shopRepo, shop: newShop });
 
   response.status(200).json(result);
 };
