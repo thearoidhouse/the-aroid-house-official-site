@@ -25,19 +25,21 @@ module.exports = async (request: NextApiRequest, response: NextApiResponse) => {
   };
 
   const telegramBotSubscribers = await telegramRepo.getAllUsers();
-  telegramBotSubscribers.forEach(async (user: { chatID: string }) => {
-    const message = {
-      chat_id: user.chatID,
-      text: craftTextFromOrder(orderAggregate),
-      parse_mode: "Markdown",
-    };
+  await Promise.all(
+    telegramBotSubscribers.forEach((user: { chatID: string }) => {
+      const message = {
+        chat_id: user.chatID,
+        text: craftTextFromOrder(orderAggregate),
+        parse_mode: "Markdown",
+      };
 
-    await fetch(TELEGRAM_API_URL, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(message),
-    });
-  });
+      fetch(TELEGRAM_API_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(message),
+      });
+    })
+  );
 
   return response.status(200).json("OK");
 };
