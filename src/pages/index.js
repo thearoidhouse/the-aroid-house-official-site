@@ -5,7 +5,6 @@ import {
   Center,
   Link as ChakraLink,
 } from "@chakra-ui/react";
-import { React } from "react";
 import Link from "next/link";
 
 import { BigButton } from "../components/buttons/BigButton";
