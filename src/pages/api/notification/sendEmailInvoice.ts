@@ -41,12 +41,20 @@ module.exports = async (request: NextApiRequest, response: NextApiResponse) => {
 
   //ES6
   sgMail.send(msgToClient).then(
-    () => {
-      sgMail.send(msgToAdmin).then(() => {
-        return;
-      });
-      return response.status(200).json("OK");
-    },
+    () => {},
+    (error) => {
+      console.error(error);
+
+      if (error.response) {
+        console.error(error.response.body);
+      }
+
+      return response.status(500).json("email sending went wrong");
+    }
+  );
+
+  sgMail.send(msgToAdmin).then(
+    () => {},
     (error) => {
       console.error(error);
 
