@@ -15,7 +15,7 @@ const CartItem = (props) => {
             </chakra.h3>
             <Spacer />
             <chakra.h3 fontSize="md" color="background">
-              S$ {props.item.value}
+              SGD {props.item.value}
             </chakra.h3>
           </HStack>
 

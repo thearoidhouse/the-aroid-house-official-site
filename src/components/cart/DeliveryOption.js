@@ -29,7 +29,7 @@ const DeliveryOption = (props) => {
           </Checkbox>
           <Spacer />
           <Text fontSize="md" color="background" hidden={boxIndex == 1}>
-            S$ 0
+            SGD 0
           </Text>
         </Flex>
         <Flex direction="row">
@@ -48,7 +48,7 @@ const DeliveryOption = (props) => {
           <Spacer />
 
           <Text fontSize="md" color="background" hidden={boxIndex == 0}>
-            S$ 10
+            SGD 10
           </Text>
         </Flex>
       </Flex>

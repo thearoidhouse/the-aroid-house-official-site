@@ -84,7 +84,7 @@ const OrderItem: FC<Props> = ({ order, mutate }) => {
           </VStack>
           <Spacer />
           <Box alignSelf="flex-end">
-            <Heading fontSize="lg">S$ {order.orderTotalAmount}</Heading>
+            <Heading fontSize="lg">SGD {order.orderTotalAmount}</Heading>
           </Box>
         </HStack>
       </Box>

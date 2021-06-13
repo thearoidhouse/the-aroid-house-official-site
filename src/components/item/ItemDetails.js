@@ -106,7 +106,7 @@ export const ItemDetails = ({
               </Text>
               <Spacer />
               <Text color="background" fontSize="xl">
-                S$ {variant.value}
+                SGD {variant.value}
               </Text>
             </Flex>
           );

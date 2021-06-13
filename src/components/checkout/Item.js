@@ -9,7 +9,7 @@ const Item = (props) => {
         </Text>
         <Spacer />
         <Text fontSize="md" color="background">
-          S$ {props.item.value}
+          SGD {props.item.value}
         </Text>
       </Flex>
     </Flex>

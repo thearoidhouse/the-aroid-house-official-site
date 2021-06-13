@@ -109,7 +109,7 @@ function cart() {
             </Text>
             <Spacer />
             <Text fontSize="md" fontWeight="bold" color="background">
-              S${" "}
+              SGD{" "}
               {items.reduce((accumulator, cartItem) => {
                 return accumulator + cartItem.value;
               }, 0) + deliveryCost}

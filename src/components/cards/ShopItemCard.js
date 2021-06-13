@@ -53,7 +53,7 @@ const ShopItemIndividualCard = React.forwardRef(function ShopItemIndividualCard(
             backgroundColor="secondaryBackground"
           >
             <Text fontWeight="bold" textColor="text">
-              From S${value}
+              From SGD {value}
             </Text>
           </Flex>
         </Box>

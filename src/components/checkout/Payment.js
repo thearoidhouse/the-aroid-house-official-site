@@ -160,7 +160,7 @@ const Payment = (props) => {
         >
           <Text color="background">Delivery</Text>
           <Spacer />
-          <Text color="background">S$ {delivery}</Text>
+          <Text color="background">SGD {delivery}</Text>
         </Flex>
       ) : (
         <Text marginLeft="5" marginY="2">
@@ -174,7 +174,7 @@ const Payment = (props) => {
         </chakra.h3>
         <Spacer />
         <chakra.h3 fontSize="lg" fontWeight="bold" color="background">
-          S${" "}
+          SGD{" "}
           {hello.reduce((accumulator, cartItem) => {
             return accumulator + cartItem.value;
           }, 0) + delivery}
