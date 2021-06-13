@@ -31,7 +31,7 @@ module.exports = async (request: NextApiRequest, response: NextApiResponse) => {
     templateId: "d-753885d783664f1e99325d3ffbf47e64",
     // templateId: "d-8545e88ce32347ad809d7af22bd25dab",
     dynamicTemplateData: {
-      customerName: orderAggregate.customer.lastName,
+      customerName: orderAggregate.customer.lastName + "made new order",
       cartItems: orderAggregate.cart.cartItems,
       orderTotal: orderAggregate.orderTotalAmount,
       isSelfCollect: orderAggregate.isSelfCollect ? 0 : 10,
