@@ -44,5 +44,5 @@ module.exports = async (request: NextApiRequest, response: NextApiResponse) => {
     });
   });
 
-  return response.status(200).json("OK");
+  return Promise.resolve("OK");
 };
