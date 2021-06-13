@@ -26,14 +26,14 @@ module.exports = async (request: NextApiRequest, response: NextApiResponse) => {
 
   const telegramBotSubscribers = await telegramRepo.getAllUsers();
   Promise.all(
-    telegramBotSubscribers.forEach((user: { chatID: string }) => {
+    telegramBotSubscribers.forEach(async (user: { chatID: string }) => {
       const message = {
         chat_id: user.chatID,
         text: craftTextFromOrder(orderAggregate),
         parse_mode: "Markdown",
       };
 
-      fetch(TELEGRAM_API_URL, {
+      await fetch(TELEGRAM_API_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(message),
