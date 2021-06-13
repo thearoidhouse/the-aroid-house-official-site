@@ -11,7 +11,6 @@ export const PaymentProvider = (props) => {
 
   useEffect(() => {
     localStorage.setItem("Item", JSON.stringify(paymentItem));
-    console.log(JSON.parse(localStorage.getItem("Item")));
   }, [paymentItem]);
 
   return (

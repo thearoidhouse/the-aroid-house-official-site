@@ -33,7 +33,6 @@ function cart() {
 
   const handleRemove = (id) => {
     const newList = items.filter((item) => items.indexOf(item) !== id);
-    //console.log(newList);
 
     setItems(newList);
     toast({
@@ -59,7 +58,6 @@ function cart() {
       });
     } else {
       setPaymentItem([{ items, deliveryCost }]);
-      console.log(paymentItem);
     }
   };
 

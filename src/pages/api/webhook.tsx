@@ -57,7 +57,6 @@ module.exports = async (request: NextApiRequest, response: NextApiResponse) => {
     // If there was an error sending our message then we
     // can log it into the Vercel console
     console.error("Error sending message");
-    console.log(error.toString());
   }
 
   // Acknowledge the message with Telegram
