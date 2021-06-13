@@ -1,7 +1,12 @@
-import { Text, Flex, Heading, Center } from "@chakra-ui/react";
+import {
+  Text,
+  Flex,
+  Heading,
+  Center,
+  Link as ChakraLink,
+} from "@chakra-ui/react";
 import { React } from "react";
 import Link from "next/link";
-import { Link as Link2 } from "@chakra-ui/react";
 
 import { BigButton } from "../components/buttons/BigButton";
 import Landing from "../components/Landing";
@@ -34,11 +39,11 @@ const Index = () => (
       <Heading color="text" fontSize="xl">
         by{""}
       </Heading>
-      <Link2 href="https://www.instagram.com/marcusonaroids/" isExternal>
+      <ChakraLink href="https://www.instagram.com/marcusonaroids/" isExternal>
         <Heading color="text" fontSize="xl">
           @marcusonaroids
         </Heading>
-      </Link2>
+      </ChakraLink>
     </Flex>
 
     <Landing marginTop="10" />
@@ -51,13 +56,13 @@ const Index = () => (
       <BigButton marginTop="10" name="Shop now" />
     </Link>
 
-    <Link2
+    <ChakraLink
       href="https://www.instagram.com/stories/highlights/17915975803718459/"
       isExternal
       _hover=""
     >
       <BigButton marginTop="5" name="Reviews" />
-    </Link2>
+    </ChakraLink>
     <Center maxWidth={["100vw", "70vw", "50vw"]} marginTop="10">
       <ItemCarousel images={images} />
     </Center>

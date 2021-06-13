@@ -1,4 +1,4 @@
-import { Text, Flex, Heading, Link as Link2 } from "@chakra-ui/react";
+import { Text, Flex, Heading, Link as ChakraLink } from "@chakra-ui/react";
 import Link from "next/link";
 
 import { BigButton } from "../components/buttons/BigButton";
@@ -18,11 +18,11 @@ const Custom404 = () => (
       <Heading color="text" fontSize="xl">
         by{""}
       </Heading>
-      <Link2 href="https://www.instagram.com/marcusonaroids/" isExternal>
+      <ChakraLink href="https://www.instagram.com/marcusonaroids/" isExternal>
         <Heading color="text" fontSize="xl">
           @marcusonaroids
         </Heading>
-      </Link2>
+      </ChakraLink>
     </Flex>
 
     <NotFoundAnimation marginTop="10" />
