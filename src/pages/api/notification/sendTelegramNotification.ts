@@ -25,7 +25,7 @@ module.exports = async (request: NextApiRequest, response: NextApiResponse) => {
   };
 
   const telegramBotSubscribers = await telegramRepo.getAllUsers();
-  await Promise.all(
+  Promise.all(
     telegramBotSubscribers.forEach((user: { chatID: string }) => {
       const message = {
         chat_id: user.chatID,
@@ -39,7 +39,11 @@ module.exports = async (request: NextApiRequest, response: NextApiResponse) => {
         body: JSON.stringify(message),
       });
     })
-  );
-
-  return response.status(200).json("OK");
+  )
+    .then(() => {
+      return response.status(200).json("OK");
+    })
+    .catch(() => {
+      return response.status(500).json("telegram message sending went wrong");
+    });
 };
