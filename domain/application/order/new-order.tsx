@@ -11,13 +11,13 @@ export const newOrder = async ({ orderRepo, orderAggregate }: INewOrder) => {
   //no matter what save order first
   orderRepo.save(orderAggregate);
 
-  await fetch(`${server}/api/notification/sendTelegramNotification`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(orderAggregate),
-  });
+  // await fetch(`${server}/api/notification/sendTelegramNotification`, {
+  //   method: "POST",
+  //   headers: {
+  //     "Content-Type": "application/json",
+  //   },
+  //   body: JSON.stringify(orderAggregate),
+  // });
 
   await fetch(`${server}/api/notification/sendEmailInvoice`, {
     method: "POST",
