@@ -24,26 +24,25 @@ module.exports = async (request: NextApiRequest, response: NextApiResponse) => {
     return message;
   };
 
-  const telegramBotSubscribers = await telegramRepo.getAllUsers();
-  Promise.all(
-    telegramBotSubscribers.forEach(async (user: { chatID: string }) => {
-      const message = {
-        chat_id: user.chatID,
-        text: craftTextFromOrder(orderAggregate),
-        parse_mode: "Markdown",
-      };
+  let telegramBotSubscribers = [];
+  const cursor = await telegramRepo.getAllUsers();
+  await cursor.forEach((user: {}) => {
+    telegramBotSubscribers.push(user);
+  });
 
-      await fetch(TELEGRAM_API_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(message),
-      });
-    })
-  )
-    .then(() => {
-      return response.status(200).json("OK");
-    })
-    .catch(() => {
-      return response.status(500).json("telegram message sending went wrong");
+  telegramBotSubscribers.map(async (subscriber: { chatID: string }) => {
+    const botMessage = {
+      chat_id: subscriber.chatID,
+      text: craftTextFromOrder(orderAggregate),
+      parse_mode: "Markdown",
+    };
+
+    await fetch(TELEGRAM_API_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(botMessage),
     });
+  });
+
+  return response.status(200).json("OK");
 };
