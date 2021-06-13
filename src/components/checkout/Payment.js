@@ -16,16 +16,15 @@ import {
 } from "domain/models/aggregates/OrderAggregate";
 
 const Payment = (props) => {
-  var name = "";
-  var email = "";
-  var address = "";
-  var number = 0;
-  var hello = [];
-
-  var delivery = 0;
+  let name = "";
+  let email = "";
+  let address = "";
+  let number = 0;
+  let itemList = [];
+  let delivery = 0;
 
   const [paymentItem, setPaymentItem] = useContext(PaymentContext);
-  const [items, setItems] = useContext(CartContext);
+  const [setItems] = useContext(CartContext);
 
   const [loading, setLoading] = useState(false);
   const router = useRouter();
@@ -89,13 +88,12 @@ const Payment = (props) => {
   };
 
   if (paymentItem.length == 2) {
-    //name = paymentItem[1].firstName + " " + paymentItem[1].lastName;
     name = paymentItem[1].lastName;
     email = paymentItem[1].email;
     address = paymentItem[1].address;
     number = paymentItem[1].phone;
     delivery = paymentItem[0].deliveryCost;
-    hello = paymentItem[0].items;
+    itemList = paymentItem[0].items;
   }
 
   return (
@@ -103,7 +101,6 @@ const Payment = (props) => {
       direction="column"
       paddingLeft={["5", "0"]}
       paddingTop="2"
-      //paddingBottom="2"
       height="full"
       width={["100vw", "55vw"]}
     >
@@ -148,7 +145,7 @@ const Payment = (props) => {
       </chakra.h3>
       <Divider width={["80vw", "55vw"]} />
 
-      {hello.map((item, i) => {
+      {itemList.map((item, i) => {
         return <Item item={item} key={i} index={i} />;
       })}
       {delivery > 0 ? (
@@ -175,7 +172,7 @@ const Payment = (props) => {
         <Spacer />
         <chakra.h3 fontSize="lg" fontWeight="bold" color="background">
           SGD{" "}
-          {hello.reduce((accumulator, cartItem) => {
+          {itemList.reduce((accumulator, cartItem) => {
             return accumulator + cartItem.value;
           }, 0) + delivery}
         </chakra.h3>
