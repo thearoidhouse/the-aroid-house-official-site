@@ -13,9 +13,9 @@ import { useSession } from "next-auth/client";
 import { useRouter } from "next/router";
 import useSWR from "swr";
 
-import Wave from "src/components/Wave";
+import Wave from "src/components/admin/Wave";
 import LeftDrawer from "src/components/admin/LeftDrawer";
-import OrderItem from "src/components/OrderItem";
+import OrderItem from "src/components/admin/OrderItem";
 
 import { OrderAggregate } from "domain/models/aggregates/OrderAggregate";
 
