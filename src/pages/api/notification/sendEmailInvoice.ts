@@ -1,12 +1,11 @@
+import type { NextApiRequest, NextApiResponse } from "next";
+
 import { OrderAggregate } from "domain/models/aggregates/OrderAggregate";
 
-interface ISendGridEmailNotification {
-  orderAggregate: OrderAggregate;
-}
+module.exports = async (request: NextApiRequest, response: NextApiResponse) => {
+  let { body } = request;
+  const orderAggregate = OrderAggregate.create(body, body._id).getResult();
 
-export const sendGridEmailNotification = async ({
-  orderAggregate,
-}: ISendGridEmailNotification) => {
   const sgMail = require("@sendgrid/mail");
   sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
@@ -28,7 +27,7 @@ export const sendGridEmailNotification = async ({
   //ES6
   sgMail.send(msg).then(
     () => {
-      console.log("email sent successfully");
+      return response.status(200).json("OK");
     },
     (error) => {
       console.error(error);
@@ -36,6 +35,8 @@ export const sendGridEmailNotification = async ({
       if (error.response) {
         console.error(error.response.body);
       }
+
+      return response.status(500).json("email sending went wrong");
     }
   );
 };
