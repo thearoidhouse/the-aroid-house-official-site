@@ -20,16 +20,6 @@ const Details = (props) => {
       <chakra.h3 marginTop="2" fontSize="xl" color="background">
         Contact details
       </chakra.h3>
-      {/* <FormControl marginTop="2" id="first-name" isRequired>
-        <FormLabel>First name</FormLabel>
-        <Input
-          backgroundColor="background"
-          placeholder="First name"
-          value={props.firstName}
-          onChange={(e) => props.updateFirstName(e.target.value)}
-          color="text"
-        />
-      </FormControl> */}
       <FormControl marginTop="2" id="last-name" isRequired>
         <FormLabel>Full name</FormLabel>
         <Input

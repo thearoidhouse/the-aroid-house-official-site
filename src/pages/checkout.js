@@ -45,17 +45,6 @@ function checkout() {
   };
 
   const addPaymentItem = (e) => {
-    // setPaymentItem({ firstName, lastName, email, address, phone });
-    // if (firstName === "") {
-    //   toast({
-    //     title: "First name empty",
-    //     description: "Please fill in your first name",
-    //     status: "warning",
-    //     duration: 2500,
-    //     isClosable: true,
-    //     position: "top",
-    //   });
-    // } else
     if (lastName === "") {
       toast({
         title: "Last name empty",
@@ -165,7 +154,6 @@ function checkout() {
                   setTabIndex={setTabIndex}
                   paymentItem={paymentItem}
                   addPaymentItem={addPaymentItem}
-                  //firstName={firstName}
                   lastName={lastName}
                   email={email}
                   address={address}

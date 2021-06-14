@@ -23,7 +23,6 @@ const images = [
 
 const Index = () => (
   <Flex
-    //height="110vh"
     height="auto"
     direction="column"
     alignItems="center"

@@ -46,7 +46,6 @@ function cart() {
   };
 
   const addPaymentItem = (e) => {
-    //e.preventDefault();
     if (items.length == 0) {
       toast({
         title: "Cart is empty",
