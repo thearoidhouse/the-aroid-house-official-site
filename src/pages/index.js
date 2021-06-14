@@ -21,7 +21,7 @@ const images = [
   "/testimonials/7.png",
 ];
 
-const Index = () => (
+const Index = ({ testimonialImages }) => (
   <Flex
     height="auto"
     direction="column"
@@ -60,9 +60,32 @@ const Index = () => (
       <BigButton marginTop="5" name="Reviews" />
     </ChakraLink>
     <Center maxWidth={["100vw", "70vw", "50vw"]} marginTop="10">
-      <ItemCarousel images={images} />
+      <ItemCarousel images={testimonialImages} />
     </Center>
   </Flex>
 );
 
 export default Index;
+
+export async function getStaticProps() {
+  const response = await fetch(
+    `https://api.cosmicjs.com/v2/buckets/danny-testing/objects/60c764902169a900086ca935?pretty=true&read_key=83i3GSGW9cqnXYFv3gp9ijljgUcNIjB7lXEp2JIVYaykZTpuB7&props=metadata,`
+  );
+  const data = await response.json();
+  const cosmicImages = data.object.metadata.images;
+
+  let testimonialImages = [];
+  cosmicImages.map((img) => {
+    testimonialImages.push(img.image.imgix_url);
+  });
+  console.log(testimonialImages);
+
+  return {
+    props: {
+      testimonialImages,
+    },
+    // incrementally regenerate every 2 hours
+    // seconds * minutes * hours
+    revalidate: 60 * 60 * 2,
+  };
+}
