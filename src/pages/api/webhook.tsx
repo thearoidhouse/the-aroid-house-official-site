@@ -27,10 +27,8 @@ module.exports = async (request: NextApiRequest, response: NextApiResponse) => {
       } = body.message;
 
       // Return chatID back to user on /getID
-      message.startsWith("/getID") && {
-        await bot.sendMessage(id, `Your chatID is : ${id}`);
-        return response.send("OK");
-      }
+      message.startsWith("/getID") &&
+        await bot.sendMessage(id, `Your chatID is : ${id}`)
     }
   } catch (error) {
     // If there was an error sending our message then we
