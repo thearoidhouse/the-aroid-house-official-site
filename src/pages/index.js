@@ -52,13 +52,9 @@ const Index = ({ testimonialImages }) => (
       <BigButton marginTop="10" name="Shop now" />
     </Link>
 
-    <ChakraLink
-      href="https://www.instagram.com/stories/highlights/17915975803718459/"
-      isExternal
-      _hover=""
-    >
-      <BigButton marginTop="5" name="Reviews" />
-    </ChakraLink>
+    <Heading marginTop="10" fontSize="2xl" color="text">
+      Reviews
+    </Heading>
     <Center maxWidth={["100vw", "70vw", "50vw"]} marginTop="10">
       <ItemCarousel images={testimonialImages} />
     </Center>
@@ -78,7 +74,6 @@ export async function getStaticProps() {
   cosmicImages.map((img) => {
     testimonialImages.push(img.image.imgix_url);
   });
-  console.log(testimonialImages);
 
   return {
     props: {
