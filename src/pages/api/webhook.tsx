@@ -7,17 +7,12 @@
 }
 import type { NextApiRequest, NextApiResponse } from "next";
 
-import { MongoTelegramRepo } from "domain/infrastructure/MongoTelegramRepository";
-import { connectToDatabase } from "src/libs/mongodb";
-
 import TelegramBot from "node-telegram-bot-api";
 
 module.exports = async (request: NextApiRequest, response: NextApiResponse) => {
   // https://github.com/yagop/node-telegram-bot-api/issues/319#issuecomment-324963294
   // Fixes an error with Promise cancellation
   process.env.NTBA_FIX_319 = "test";
-  const { db } = await connectToDatabase();
-  const telegramRepo = MongoTelegramRepo.create(db);
 
   try {
     const bot = new TelegramBot(process.env.TELEGRAM_TOKEN!);
@@ -31,24 +26,8 @@ module.exports = async (request: NextApiRequest, response: NextApiResponse) => {
         text: message,
       } = body.message;
 
-      // Only admin can send /add {userName} {chatID} command
-      const isAdmin = id == process.env.TELEGRAM_ADMIN;
-      if (isAdmin && message.startsWith("/add")) {
-        const newUserName = message.split(" ")[1]; // {userName}
-        const newChatID = message.split(" ")[2]; // {chatID}
-
-        telegramRepo.addUser(newUserName, newChatID);
-
-        await bot.sendMessage(
-          id,
-          `Successfully added: ${newUserName} ${newChatID}`
-        );
-
-        return response.send("OK");
-      }
-
       // Return chatID back to user on /getID
-      if (message.startsWith("/getID")) {
+      message.startsWith("/getID") && {
         await bot.sendMessage(id, `Your chatID is : ${id}`);
         return response.send("OK");
       }
