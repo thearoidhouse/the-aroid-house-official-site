@@ -1,4 +1,14 @@
 # The Aroid House Official Site
+<img src='https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black'>
+
+<img src='https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white'>
+
+<img src='https://img.shields.io/badge/Chakra--UI-319795?style=for-the-badge&logo=chakra-ui&logoColor=white'>
+
+<img src='https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=next-dot-js&logoColor=white'>
+
+<img src='https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white'>
+
 Official site of TheAroidHouse. For [@marcusonaroids](https://www.instagram.com/marcusonaroids/). 
 
 ## Demo
