@@ -11,16 +11,6 @@ import { BigButton } from "../components/buttons/BigButton";
 import Landing from "../components/Landing";
 import { ItemCarousel } from "../components/item/ItemCarousel";
 
-const images = [
-  "/testimonials/1.png",
-  "/testimonials/2.png",
-  "/testimonials/3.png",
-  "/testimonials/4.png",
-  "/testimonials/5.png",
-  "/testimonials/6.png",
-  "/testimonials/7.png",
-];
-
 const Index = ({ testimonialImages }) => (
   <Flex
     height="auto"
