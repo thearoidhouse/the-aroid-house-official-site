@@ -24,7 +24,7 @@ const Payment = (props) => {
   let delivery = 0;
 
   const [paymentItem, setPaymentItem] = useContext(PaymentContext);
-  const [setItems] = useContext(CartContext);
+  const [_, setItems] = useContext(CartContext);
 
   const [loading, setLoading] = useState(false);
   const router = useRouter();

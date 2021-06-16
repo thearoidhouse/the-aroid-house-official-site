@@ -54,7 +54,9 @@ module.exports = async (request: NextApiRequest, response: NextApiResponse) => {
   );
 
   sgMail.send(msgToAdmin).then(
-    () => {},
+    () => {
+      return response.status(200).json("email sending success");
+    },
     (error) => {
       console.error(error);
 
