@@ -70,10 +70,44 @@ Start the server
 
 ## Documentation
 
-### Drawings
+### Diagrams
+#### Context Diagram
+![Context Diagram](documentation/assets/ContextDiagram.jpg)
 
-### Design Decision
+#### Container + Component Diagram
+![Container Component Diagram](documentation/assets/ContianerComponentDiagram.jpg)
 
+#### Code Diagram
+![Code Diagram](documentation/assets/CodeDiagram.jpg)
+
+### Design Decisions
+
+Major driving factor of our decision is cost. We need to keep cost as close to zero as possible. For to that cost driving factor, we have decided to go with
+
+#### UI Library
+We considered two. ChakraUI and TailwindCSS.
+
+TailwindCSS definitely gives better customizability over ChakraUI but the initial learning curve is steep for us. Our team is well versed with ChakraUI but no experience with TailwindCSS. For that reason, we decided to go with CharaUI for this project. We will try out TaildwindCSS for next project.
+
+#### Web Framework
+NextJS. Our team is well versed in NextJS and we have little to zero developer friction/initial learning curve time is reduced. Time to delivery reduced.
+
+Also NextJS is built upon React framework. We could make use of multitute of community desigend components.
+
+#### Hosting
+Vercel hobby plan has generous limits. 100GB of bandwith per month. If the site grows too big then will have to migrate over to the team plan. [See vercel plans pricing here.](https://vercel.com/pricing)
+
+#### Content Management
+We considered two. Strapi and CosmicJS. 
+
+Strapi gives user and developers more flexibility and customizability. One big con is that it has to be self hosted.
+
+CosmicJS gives user easier to use dashboard (compared to Strapi) to manage content. We decided to go with CosmicJS as it has generous limits. 10,000 API requests per month. It is also a managed service. [See CosmicJS pricing here.](https://www.cosmicjs.com/pricing)
+
+#### Datastore/Database
+We initially wanted to use firebase firestore. We found it hard to integrate with NextJS/Vercel serverless functions and thus went with MongoDB free tier M0 shared cluster.
+
+We lose the ability to have realtime update of data which is not required in our current system. [See MongoDB pricing here.](https://www.mongodb.com/pricing)
 
 ## Authors
 - [@YingSheng](https://yeowys.com)
