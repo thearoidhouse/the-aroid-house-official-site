@@ -9,6 +9,8 @@
   <img src='https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=next-dot-js&logoColor=white'>
 
   <img src='https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white'>
+
+  <img src='https://img.shields.io/badge/CosmicJS-29ABE1?style=for-the-badge'>
 </p>
 
 Official site of TheAroidHouse. For [@marcusonaroids](https://www.instagram.com/marcusonaroids/). 
