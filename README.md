@@ -13,7 +13,9 @@
   <img src='https://img.shields.io/badge/CosmicJS-29ABE1?style=for-the-badge'>
 </p>
 
-Official site of TheAroidHouse. For [@marcusonaroids](https://www.instagram.com/marcusonaroids/). 
+Repository for official site of TheAroidHouse. Built for [@marcusonaroids](https://www.instagram.com/marcusonaroids/). 
+
+[Click here to visit the site](https://the-aroid-house-official-site.vercel.app)
 
 ## Demo
 INSERT DEMO GIF HERE
@@ -71,8 +73,9 @@ Start the server
 ```
 
 ## Documentation
-
 ### Diagrams
+[We are following the C4 model for visualising software architecture](https://c4model.com/)
+
 #### Context Diagram
 ![Context Diagram](documentation/assets/ContextDiagram.jpg)
 
