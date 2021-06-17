@@ -7,7 +7,6 @@ interface CredentialObject {
 }
 
 export default NextAuth({
-  // Configure one or more authentication providers
   providers: [
     Providers.Credentials({
       name: "TheAroidHouseAccount",
