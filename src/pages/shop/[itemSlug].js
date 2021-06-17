@@ -62,9 +62,8 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const response = await fetch(
-    `https://api.cosmicjs.com/v2/buckets/the-aroid-house-offficial-site-production/objects?pretty=true&read_key=ah5230JxP2Sp8G6QyEhWrxXdsdwHQPP8rPTPMY5Rfq3RBHnPP7&query=%7B%22slug%22%3A%22${params.itemSlug}%22%7D&props=slug,metadata`
-  );
+  const query = `%7B%22slug%22%3A%22${params.itemSlug}%22%7D`;
+  const response = await fetch(`${process.env.COSMIC_SHOPITEMS}${query}`);
   const data = await response.json();
 
   if (data.objects == null) {
