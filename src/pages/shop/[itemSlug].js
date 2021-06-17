@@ -44,9 +44,7 @@ function ItemSlug({ itemDetails }) {
 export default ItemSlug;
 
 export async function getStaticPaths() {
-  const response = await fetch(
-    "https://api.cosmicjs.com/v2/buckets/the-aroid-house-offficial-site-production/objects?pretty=true&query=%7B%22type%22%3A%22shopitems%22%7D&read_key=ah5230JxP2Sp8G6QyEhWrxXdsdwHQPP8rPTPMY5Rfq3RBHnPP7&limit=20&props=slug"
-  );
+  const response = await fetch(`${process.env.COSMIC_SHOPITEMS}`);
   const data = await response.json();
   const slugs = data.objects.map((item) => item.slug);
 

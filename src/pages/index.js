@@ -54,9 +54,7 @@ const Index = ({ testimonialImages }) => (
 export default Index;
 
 export async function getStaticProps() {
-  const response = await fetch(
-    `https://api.cosmicjs.com/v2/buckets/danny-testing/objects/60c764902169a900086ca935?pretty=true&read_key=83i3GSGW9cqnXYFv3gp9ijljgUcNIjB7lXEp2JIVYaykZTpuB7&props=metadata,`
-  );
+  const response = await fetch(`${process.env.COSMIC_TESTIMONIAL}`);
   const data = await response.json();
   const cosmicImages = data.object.metadata.images;
 
