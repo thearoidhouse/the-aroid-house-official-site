@@ -56,7 +56,7 @@ export default Index;
 export async function getStaticProps() {
   const response = await fetch(`${process.env.COSMIC_TESTIMONIAL}`);
   const data = await response.json();
-  const cosmicImages = data.object.metadata.images;
+  const cosmicImages = data.objects.metadata.images;
 
   let testimonialImages = [];
   cosmicImages.map((img) => {
