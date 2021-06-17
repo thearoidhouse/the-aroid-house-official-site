@@ -60,6 +60,10 @@ const LeftDrawer: FC<Props> = ({
                 </Link>
               );
             })}
+
+            <Link href="/api/auth/signout">
+              <Button>Sign Out</Button>
+            </Link>
           </VStack>
         </DrawerBody>
       </DrawerContent>
