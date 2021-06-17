@@ -11,7 +11,7 @@ module.exports = async (request: NextApiRequest, response: NextApiResponse) => {
 
   const msgToClient = {
     to: orderAggregate.customer.email,
-    from: "dannyyys@yeowys.com", // Use the email address or domain you verified above
+    from: process.env.ADMIN_EMAIL, // Use the email address or domain you verified above
     subject: "TheAroidHouse Invoice",
     templateId: process.env.SENDGRID_TEMPLATE,
     dynamicTemplateData: {
@@ -24,8 +24,8 @@ module.exports = async (request: NextApiRequest, response: NextApiResponse) => {
   };
 
   const msgToAdmin = {
-    to: "yeowys95@gmail.com",
-    from: "dannyyys@yeowys.com", // Use the email address or domain you verified above
+    to: process.env.ADMIN_EMAIL,
+    from: process.env.ADMIN_EMAIL, // Use the email address or domain you verified above
     subject: "TheAroidHouse New Order",
     templateId: process.env.SENDGRID_TEMPLATE,
     dynamicTemplateData: {
