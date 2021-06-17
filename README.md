@@ -83,6 +83,61 @@ Start the server
 
 ## Documentation
 
+### Folder Structure
+```
+the-aroid-house-official-site/
+┣━━📁 documentation       # assets for README.md
+┣━━📁 domain              # we are following domain driven design approach
+┃ ┣━━📁 application
+┃ ┃ ┗━━📁 order
+┃ ┣━━📁 infrastructure
+┃ ┃ ┗━━ MongoOrderRepository.tsx
+┃ ┗━━📁 models
+┃   ┣━━📁 aggregates
+┃   ┣━━📁 entities
+┃   ┗━━📁 infrastructure
+┣━━📁 public              # public assets, favicon, SEO head images
+┣━━📁 src
+┃ ┣━━📁 components
+┃ ┃ ┣━━📁 admin
+┃ ┃ ┣━━📁 buttons
+┃ ┃ ┣━━📁 cards
+┃ ┃ ┣━━📁 cart
+┃ ┃ ┣━━📁 checkout
+┃ ┃ ┣━━📁 item
+┃ ┃ ┣━━📁 layout
+┃ ┃ ┣━━ Landing.js
+┃ ┃ ┣━━ NotFoundAnimation.js
+┃ ┃ ┣━━ ShopItems.js
+┃ ┃ ┗━━ ThankyouAnimation.js
+┃ ┣━━📁 context
+┃ ┃ ┣━━ CartContext.js
+┃ ┃ ┗━━ PaymentContext.js
+┃ ┣━━📁 libs               # MongoDB connector
+┃ ┃ ┗━━ mongodb.ts
+┃ ┣━━📁 pages
+┃ ┃ ┣━━📁 admin
+┃ ┃ ┣━━📁 api              # serverless functions
+┃ ┃ ┣━━📁 shop
+┃ ┃ ┣━━ 404.js
+┃ ┃ ┣━━ _app.js
+┃ ┃ ┣━━ _document.js
+┃ ┃ ┣━━ cart.js
+┃ ┃ ┣━━ checkout.js
+┃ ┃ ┣━━ index.js           # main page
+┃ ┃ ┗━━ thankyou.js
+┃ ┗━━ theme.js
+┣━━ .env.local
+┣━━ .gitignore
+┣━━ README.md
+┣━━ config.js
+┣━━ next-env.d.ts
+┣━━ next.config.js
+┣━━ package-lock.json
+┣━━ package.json
+┗━━ tsconfig.json
+```
+
 ### Diagrams
 
 [We are following the C4 model for visualising software architecture](https://c4model.com/)
