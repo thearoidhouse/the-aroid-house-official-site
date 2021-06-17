@@ -18,7 +18,6 @@ import {
 import { ChevronDownIcon } from "@chakra-ui/icons";
 import {
   FaUserAlt,
-  FaHashtag,
   FaShuttleVan,
   FaDirections,
   FaPhoneAlt,
