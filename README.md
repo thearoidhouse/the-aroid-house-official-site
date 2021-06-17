@@ -118,6 +118,12 @@ Animations from [LottieFiles](https://lottiefiles.com/)
 
 ![Dialog Map(Admin)](documentation/assets/DM_admin.jpg)
 
+#### Instructions
+
+[User purchase instructions](https://www.figma.com/file/oI7ZEa1MMACvtPT0WHeP53/TheAroidHouse-purchase-instructions)
+
+[Admin instructions](https://www.figma.com/file/qryInjAH5rp1DlfRiY7JF3/TheAroidHouse-admin-instructions)
+
 ### Design Decisions
 
 Major driving factor of our decision is cost. We need to keep cost as close to zero as possible. For to that cost driving factor, we have decided to go with
