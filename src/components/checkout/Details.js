@@ -1,109 +1,15 @@
 import {
+  Box,
   Flex,
   chakra,
   FormControl,
   FormLabel,
   Input,
-  useToast,
 } from "@chakra-ui/react";
 
 import { SmallButton } from "../buttons/SmallButton";
 
-import { PaymentContext } from "../../context/PaymentContext";
-import React, { useState, useContext } from "react";
-
-const Details = () => {
-  const toast = useToast();
-
-  const [setPaymentItem] = useContext(PaymentContext);
-
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [address, setAddress] = useState("");
-  const [phone, setPhone] = useState("");
-
-  const updateFirstName = (firstName) => {
-    setFirstName(firstName);
-  };
-  const updateLastName = (lastName) => {
-    setLastName(lastName);
-  };
-  const updateEmail = (email) => {
-    setEmail(email);
-  };
-  const updateAddress = (address) => {
-    setAddress(address);
-  };
-  const updatePhone = (phone) => {
-    setPhone(phone);
-  };
-
-  const addPaymentItem = (e) => {
-    if (lastName === "") {
-      toast({
-        title: "Last name empty",
-        description: "Please fill in your last name",
-        status: "warning",
-        duration: 2500,
-        isClosable: true,
-        position: "top",
-      });
-    } else if (email === "") {
-      toast({
-        title: "Email empty",
-        description: "Please fill in your email",
-        status: "warning",
-        duration: 2500,
-        isClosable: true,
-        position: "top",
-      });
-    } else if (address === "") {
-      toast({
-        title: "Address empty",
-        description: "Please fill in your address",
-        status: "warning",
-        duration: 2500,
-        isClosable: true,
-        position: "top",
-      });
-    } else if (phone === "") {
-      toast({
-        title: "Phone empty",
-        description: "Please fill in your phone number",
-        status: "warning",
-        duration: 2500,
-        isClosable: true,
-        position: "top",
-      });
-    } else if (phone !== "") {
-      const validPhoneNumber = /[8|9][0-9]{7}$/;
-      if (!phone.match(validPhoneNumber)) {
-        toast({
-          title: "Phone empty",
-          description: "Phone number must start with 9 or 8 and have 8 digits",
-          status: "warning",
-          duration: 2500,
-          isClosable: true,
-          position: "top",
-        });
-      } else {
-        setPaymentItem((prevItems) => [
-          ...prevItems,
-          { lastName, email, address, phone },
-        ]);
-      }
-    } else {
-      toast({
-        title: "Something went wrong",
-        description:
-          "Something went wrong please message marcus on instagram instead",
-        status: "warning",
-        duration: 2500,
-        isClosable: true,
-        position: "top",
-      });
-    }
-  };
+const Details = (props) => {
   return (
     <Flex
       direction="column"
@@ -119,8 +25,8 @@ const Details = () => {
         <Input
           backgroundColor="background"
           placeholder="name"
-          value={lastName}
-          onChange={(e) => updateLastName(e.target.value)}
+          value={props.LastName}
+          onChange={(e) => props.updateLastName(e.target.value)}
           color="text"
         />
       </FormControl>
@@ -129,8 +35,8 @@ const Details = () => {
         <Input
           backgroundColor="background"
           placeholder="Email"
-          value={email}
-          onChange={(e) => updateEmail(e.target.value)}
+          value={props.email}
+          onChange={(e) => props.updateEmail(e.target.value)}
           color="text"
         />
       </FormControl>
@@ -139,8 +45,8 @@ const Details = () => {
         <Input
           backgroundColor="background"
           placeholder="Address"
-          value={address}
-          onChange={(e) => updateAddress(e.target.value)}
+          value={props.address}
+          onChange={(e) => props.updateAddress(e.target.value)}
           color="text"
         />
       </FormControl>
@@ -149,15 +55,15 @@ const Details = () => {
         <Input
           backgroundColor="background"
           placeholder="91234567"
-          value={phone}
-          onChange={(e) => updatePhone(e.target.value)}
+          value={props.phone}
+          onChange={(e) => props.updatePhone(e.target.value)}
           color="text"
         />
       </FormControl>
       <Flex marginTop="5" justifyContent="flex-end">
         <SmallButton
           onClick={() => {
-            addPaymentItem();
+            props.addPaymentItem();
           }}
           name="Next"
         />
