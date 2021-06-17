@@ -44,7 +44,7 @@ function ItemSlug({ itemDetails }) {
 export default ItemSlug;
 
 export async function getStaticPaths() {
-  const response = await fetch(`${process.env.COSMIC_SHOPITEMS}`);
+  const response = await fetch(`${process.env.COSMIC_SHOP}`);
   const data = await response.json();
   const slugs = data.objects.map((item) => item.slug);
 
