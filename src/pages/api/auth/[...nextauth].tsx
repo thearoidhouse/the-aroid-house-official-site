@@ -10,13 +10,9 @@ export default NextAuth({
   // Configure one or more authentication providers
   providers: [
     Providers.Credentials({
-      name: "TheAroyHouseAccount",
+      name: "TheAroidHouseAccount",
       credentials: {
-        username: {
-          label: "Username",
-          type: "text",
-          placeholder: "DanKarJun Organization",
-        },
+        username: { label: "Username", type: "text" },
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials: CredentialObject) {
