@@ -13,7 +13,7 @@ module.exports = async (request: NextApiRequest, response: NextApiResponse) => {
     to: orderAggregate.customer.email,
     from: "dannyyys@yeowys.com", // Use the email address or domain you verified above
     subject: "TheAroidHouse Invoice",
-    templateId: "d-4095ddd2f6564cfb87086aee771800e7",
+    templateId: process.env.SENDGRID_TEMPLATE,
     dynamicTemplateData: {
       customerName: orderAggregate.customer.lastName,
       cartItems: orderAggregate.cart.cartItems,
@@ -27,7 +27,7 @@ module.exports = async (request: NextApiRequest, response: NextApiResponse) => {
     to: "yeowys95@gmail.com",
     from: "dannyyys@yeowys.com", // Use the email address or domain you verified above
     subject: "TheAroidHouse New Order",
-    templateId: "d-4095ddd2f6564cfb87086aee771800e7",
+    templateId: process.env.SENDGRID_TEMPLATE,
     dynamicTemplateData: {
       customerName: orderAggregate.customer.lastName + " made new order",
       cartItems: orderAggregate.cart.cartItems,
