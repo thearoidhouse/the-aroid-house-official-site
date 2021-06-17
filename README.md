@@ -214,6 +214,5 @@ We initially wanted to use firebase firestore. We found it hard to integrate wit
 We lose the ability to have realtime update of data which is not required in our current system. [See MongoDB pricing here.](https://www.mongodb.com/pricing)
 
 ## Authors
-
 - [@YingSheng](https://yeowys.com)
 - [@OkkarMin](https://okkarm.in)
