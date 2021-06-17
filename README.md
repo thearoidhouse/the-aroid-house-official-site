@@ -99,7 +99,7 @@ Start the server
 
 ![Code Diagram](documentation/assets/CodeDiagram.jpg)
 
-#### Prototype
+#### UI Prototype
 
 We did our prototype using figma
 [Click here to view](https://www.figma.com/file/R7p55i68xrq2K7SGj1yG3C/TheAroidHouse)
